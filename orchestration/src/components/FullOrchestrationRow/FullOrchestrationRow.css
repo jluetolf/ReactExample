@@ -1,13 +1,13 @@
 .FullOrchestrationRow {
-    width: 95%;
     display: flex;
-    padding: 15px;
+    padding: 6px;
     text-align: center;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
     margin: 10px;
     box-sizing: border-box;
-    background-color: beige;
+    background-color: #eeeeee;
+
 
 }
 
@@ -19,6 +19,10 @@
 
 .OrchestrationCluster {
     display: flex;
+}
+
+.Padding {
+    width: 5%;
 }
 
 

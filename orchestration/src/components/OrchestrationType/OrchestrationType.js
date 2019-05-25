@@ -5,7 +5,9 @@ const OrchestrationType = (props) => {
 
     return (
         <div className="OrchestrationType">
-            <p>{props.name}</p>
+            <div id="date">{props.date} </div>
+            <div id="name">{props.name} Orchestration</div>
+
         </div>
     );
 

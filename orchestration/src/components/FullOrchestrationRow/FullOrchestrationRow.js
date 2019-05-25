@@ -33,7 +33,8 @@ const FullOrchestrationRow = (props) => {
     }
     return (
         <div className="FullOrchestrationRow">
-            <OrchestrationType name={props.orchestration.orchestrationType}/>
+            <OrchestrationType name={props.orchestration.orchestrationType}
+                               date={props.orchestration.orchestration_date}/>
             <div className="Orchestration">
                 <div className="OrchestrationCluster">
                     <Cluster cluster="Secondary"/>
@@ -43,6 +44,7 @@ const FullOrchestrationRow = (props) => {
                 </div>
                 <div className="OrchestrationCluster">
                     <Cluster cluster="Primary"/>
+                    {testDictionary[2]}
                     {primaryDictionary}
                     {testDictionary[3]}
                 </div>

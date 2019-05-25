@@ -19,6 +19,16 @@
   color: white;
 }
 
+.Container {
+  display: flex;
+
+}
+
+.LeftSide {
+  width: 10%;
+
+}
+
 .App-link {
   color: #61dafb;
 }

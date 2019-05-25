@@ -1,5 +1,6 @@
 .Cluster  {
-    width: 30px;
+    font-size: 13px;
+    font-weight: 500;
     margin: 5px;
     writing-mode: vertical-rl;
     justify-content:center;
@@ -9,6 +10,7 @@
     box-shadow: 0 2px 3px #ccc;
     box-sizing: border-box;
     background-color: white;
+    width: 25px;
 
 
 }

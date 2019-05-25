@@ -1,12 +1,26 @@
 .OrchestrationType  {
     display: flex;
+    flex-direction: column;
+    width: 175px;
     margin: 5px;
     padding: 5px;
-    text-align: center;
+    text-align: left;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
     box-sizing: border-box;
     cursor: pointer;
     background-color: white;
 }
+
+.OrchestrationType #name {
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.OrchestrationType #date {
+    font-size: 15px;
+    font-weight: 500;
+}
+
 

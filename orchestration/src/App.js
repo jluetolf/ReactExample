@@ -10,13 +10,18 @@ class App extends Component {
         return (
 
             <BrowserRouter>
-                <div className="App">
-                    <DateRangePicker/>
-                    <OrchestrationList/>
 
-                    {/*<ListView/>*/}
-                    {/*<Detail/>*/}
+
+                <div className="Container">
+                    <div className="LeftSide"></div>
+                    <div className="App">
+                        <DateRangePicker/>
+                        <OrchestrationList/>
+                    </div>
+
                 </div>
+
+
             </BrowserRouter>
         );
     }

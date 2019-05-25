@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 //import axiosinstance from '../../axios';
 import {connect} from 'react-redux';
 import FullOrchestrationRow from '../../components/FullOrchestrationRow/FullOrchestrationRow';
+import './OrchestrationList.css';
 
 //import moment from 'moment';
 
@@ -69,7 +70,7 @@ class OrchestrationList extends Component {
     render() {
 
         return (
-            <div>
+            <div className="OrchestrationList">
                 {this.fullOrchestrationRows}
             </div>
         );
