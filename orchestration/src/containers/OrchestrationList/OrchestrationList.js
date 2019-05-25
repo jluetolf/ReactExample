@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import axiosinstance from '../../axios';
+//import axiosinstance from '../../axios';
 import {connect} from 'react-redux';
 import FullOrchestrationRow from '../../components/FullOrchestrationRow/FullOrchestrationRow';
 
-import moment from 'moment';
+//import moment from 'moment';
 
 class OrchestrationList extends Component {
 
@@ -12,6 +12,13 @@ class OrchestrationList extends Component {
     fullOrchestrationRows = [];
     fromDate = new Date();
     toDate = new Date();
+
+    constructor(props) {
+        super(props);
+        this.fullOrchestrationRows = this.props.orchestrationList.map(row => {
+            return <FullOrchestrationRow orchestration={row} key={row.id}/>
+        });
+    }
 
 
     componentDidMount() {
@@ -26,34 +33,36 @@ class OrchestrationList extends Component {
     update() {
 
 
-        if ( this.fromDate !== this.props.startDate || this.toDate !== this.props.endDate) {
-
-            this.fromDate = this.props.startDate;
-            this.toDate = this.props.endDate;
 
 
-            const dateRange = {
-                fromDate:  moment(this.props.startDate).format(this.dateFormat),
-                toDate: moment(this.props.endDate).format(this.dateFormat)
-            }
-
-
-            axiosinstance.post('/Orchestrations', dateRange)
-                .then(response => {
-                    if (JSON.stringify(this.props.orchestrationList) !== JSON.stringify(response.data)) {
-                        this.fullOrchestrationRows = response.data.map(row => {
-                            return <FullOrchestrationRow orchestration={row} key={row.id}/>
-                        });
-
-                        this.props.onUpdatedOrchestrationList(response.data);
-                    }
-                })
-                .catch(error => {
-                    if (this.props.error !== error) {
-                        this.props.onUpdateError(error);
-                    }
-                });
-        }
+        // if ( this.fromDate !== this.props.startDate || this.toDate !== this.props.endDate) {
+        //
+        //     this.fromDate = this.props.startDate;
+        //     this.toDate = this.props.endDate;
+        //
+        //
+        //     const dateRange = {
+        //         fromDate:  moment(this.props.startDate).format(this.dateFormat),
+        //         toDate: moment(this.props.endDate).format(this.dateFormat)
+        //     }
+        //
+        //
+        //     axiosinstance.post('/Orchestrations', dateRange)
+        //         .then(response => {
+        //             if (JSON.stringify(this.props.orchestrationList) !== JSON.stringify(response.data)) {
+        //                 this.fullOrchestrationRows = response.data.map(row => {
+        //                     return <FullOrchestrationRow orchestration={row} key={row.id}/>
+        //                 });
+        //
+        //                 this.props.onUpdatedOrchestrationList(response.data);
+        //             }
+        //         })
+        //         .catch(error => {
+        //             if (this.props.error !== error) {
+        //                 this.props.onUpdateError(error);
+        //             }
+        //         });
+        // }
     }
 
 

@@ -2,6 +2,8 @@ import React from 'react';
 import './FullOrchestrationRow.css';
 import Node from '../../components/Node/Node';
 import Test from '../../components/Test/Test';
+import OrchestrationType from "../OrchestrationType/OrchestrationType";
+import Cluster from "../Cluster/Cluster";
 
 const FullOrchestrationRow = (props) => {
 
@@ -13,12 +15,12 @@ const FullOrchestrationRow = (props) => {
         let node = props.orchestration.nodes[index];
         if (node.cluster_type === "secondary") {
             secondaryDictionary[node.id] = (
-                <Node orchestrationNode={node}  key={node.id}/>
+                <Node orchestrationNode={node} key={node.id}/>
             )
         }
         if (node.cluster_type === "primary") {
             primaryDictionary[node.id] = (
-                <Node orchestrationNode={node}  key={node.id}/>
+                <Node orchestrationNode={node} key={node.id}/>
             )
         }
     }
@@ -29,20 +31,21 @@ const FullOrchestrationRow = (props) => {
             <Test orchestrationNode={test} key={test.id}/>
         )
     }
-
     return (
-        <div>
-            <div className="FullOrchestrationRow">
-                <p>Secondary Nodes Orchestration</p>
-                {testDictionary[1]}
-                {secondaryDictionary}
-                {testDictionary[2]}
-            </div>
-            <div></div>
-            <div className="FullOrchestrationRow">
-                <p>Primary Nodes Orchestration</p>
-                {primaryDictionary}
-                {testDictionary[3]}
+        <div className="FullOrchestrationRow">
+            <OrchestrationType name={props.orchestration.orchestrationType}/>
+            <div className="Orchestration">
+                <div className="OrchestrationCluster">
+                    <Cluster cluster="Secondary"/>
+                    {testDictionary[1]}
+                    {secondaryDictionary}
+                    {testDictionary[2]}
+                </div>
+                <div className="OrchestrationCluster">
+                    <Cluster cluster="Primary"/>
+                    {primaryDictionary}
+                    {testDictionary[3]}
+                </div>
             </div>
         </div>
     );
