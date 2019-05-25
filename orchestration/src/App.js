@@ -1,20 +1,21 @@
 import React, {Component} from 'react';
 import './App.css';
 import {BrowserRouter} from 'react-router-dom';
-import Detail from '../components/Detail/Detail';
-import ListView from '../components/DateRangePicker/DateRangePicker';
+import DateRangePicker from './components/DateRangePicker/DateRangePicker';
+import OrchestrationList from './containers/OrchestrationList/OrchestrationList';
 
 class App extends Component {
-
 
     render() {
         return (
 
             <BrowserRouter>
                 <div className="App">
+                    <DateRangePicker/>
+                    <OrchestrationList/>
 
-                    <ListView/>
-                    <Detail/>
+                    {/*<ListView/>*/}
+                    {/*<Detail/>*/}
                 </div>
             </BrowserRouter>
         );
