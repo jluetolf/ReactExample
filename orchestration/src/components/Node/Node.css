@@ -17,16 +17,33 @@
     font-weight: 500;
     width: 100%;
     text-align: right;
-    font-size: 17px;
+    font-size: 15px;
 
 }
 
+#node_type  {
+    font-weight: 500;
+    text-align: right;
+    font-size: 15px;
+    margin-left: 5px;
+
+}
+
+
+
+
 .Node .FirstRow, .SecondRow {
-    margin: 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
 
+.Node .FirstRow {
+    margin: 5px 5px 5px 5px
+}
+
+.Node .SecondRow {
+    margin: 10px 5px 5px 5px
 }
 
 .Node .btn {
