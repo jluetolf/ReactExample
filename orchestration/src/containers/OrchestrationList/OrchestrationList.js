@@ -71,7 +71,9 @@ class OrchestrationList extends Component {
 
         return (
             <div className="OrchestrationList">
-                {this.fullOrchestrationRows}
+                <div className="Container">
+                    {this.fullOrchestrationRows}
+                </div>
             </div>
         );
     }

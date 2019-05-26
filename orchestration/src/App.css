@@ -1,5 +1,21 @@
 .App {
-  text-align: left;
+  display: flex;
+  flex-direction: row;
+}
+
+.App .Left {
+  width: 10%;
+
+}
+
+.App .Middle {
+  width: 80%;
+
+}
+
+.App .Right {
+  width: 10%;
+
 }
 
 .App-logo {
@@ -19,15 +35,6 @@
   color: white;
 }
 
-.Container {
-  display: flex;
-
-}
-
-.LeftSide {
-  width: 10%;
-
-}
 
 .App-link {
   color: #61dafb;
@@ -41,3 +48,29 @@
     transform: rotate(360deg);
   }
 }
+
+.App ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.App li {
+  display: inline-block;
+  margin: 20px;
+}
+
+.App a {
+  text-decoration: none;
+  color: black;
+}
+
+.App a:hover,
+.App a:active,
+.App a.active,
+.App a.my-active{
+  color: #fa923f;
+}
+

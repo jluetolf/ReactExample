@@ -4,7 +4,7 @@ import green from '../../resources/green.png';
 import red from '../../resources/red.png';
 import yellow from '../../resources/yellow.png';
 import grey from '../../resources/grey.png';
-import 'bootstrap/dist/css/bootstrap.css';
+import {Link} from 'react-router-dom';
 
 
 const Node = (props) => {
@@ -33,15 +33,12 @@ const Node = (props) => {
     }
 
 
-
     let servers = " Server";
     if (props.orchestrationNodes.length > 1) {
         servers = " Servers";
     }
 
-     servers = props.orchestrationNodes.length + servers;
-
-
+    servers = props.orchestrationNodes.length + servers;
 
     return (
         <div className="Node">
@@ -52,11 +49,16 @@ const Node = (props) => {
             </div>
             <div className="SecondRow">
                 <button type="button" className="btn info">Orchestrate</button>
-                <button id="detail" type="button" className="btn info">Detail</button>
+                <Link to= {{pathname: '/detail', orchestrationNodes: props.orchestrationNodes}}>
+                    <button id="detail" type="button" className="btn info">Detail</button>
+                </Link>
             </div>
         </div>
 
     );
+    {/*<Node orchestrationNodes={primaryListDRF} nodeType="DRF" key="DRF"/>);*/
+    }
+
 
 
 }
