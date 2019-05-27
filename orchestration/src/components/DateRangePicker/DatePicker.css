@@ -14,10 +14,8 @@ input:focus {
 
 
 .DatePicker {
-    padding: 30px;
-    display: inline-flex;
-    align-content: left;
-    height: 37px;
+    padding: 5px;
+    display: flex;
 
 }
 

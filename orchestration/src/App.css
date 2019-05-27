@@ -1,6 +1,7 @@
 .App {
   display: flex;
   flex-direction: row;
+  justify-items: center;
 }
 
 .App .Left {
@@ -9,14 +10,11 @@
 }
 
 .App .Middle {
-  width: 80%;
+  width: 100%;
 
 }
 
-.App .Right {
-  width: 10%;
 
-}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

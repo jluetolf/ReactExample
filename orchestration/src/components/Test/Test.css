@@ -1,7 +1,10 @@
 .Test  {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin: 3px;
-    max-width: 200px;
-    min-width: 140px;
+    padding: 5px;
+    width: 200px;
     text-align: center;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
@@ -10,6 +13,55 @@
     background-color: white;
     flex-grow: 1
 }
+
+.Test .row {
+    display: flex;
+    flex-direction: row;
+}
+
+.Test #cluster_name  {
+    margin: 0px 5px 0px 5px;
+    font-weight: 500;
+    font-size: 15px;
+
+}
+
+.Test #test_name  {
+    font-weight: 500;
+    font-size: 15px;
+    margin-left: 5px;
+
+}
+
+
+.Test .btn {
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    padding: 0px 7px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/* Blue */
+.Test .info {
+    border-color: #aeaeae;
+    color: black;
+}
+
+.Test .info:hover {
+    background: #808080;
+    color: white;
+}
+
+.Test #detail {
+    margin-left: 5px;
+}
+
+
+
 
 
 
