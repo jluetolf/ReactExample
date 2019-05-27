@@ -1,3 +1,28 @@
 .FullOrchestrationRow {
     display: flex;
+    padding: 6px;
+    text-align: center;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    margin: 10px;
+    box-sizing: border-box;
+    background-color: #eeeeee;
+
+
 }
+
+.Orchestration {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.OrchestrationCluster {
+    display: flex;
+}
+
+.Padding {
+    width: 5%;
+}
+
+

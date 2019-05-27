@@ -1,0 +1,12 @@
+.OrchestrationList {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.OrchestrationList .Container {
+    display: flex;
+    flex-direction: column;
+
+}

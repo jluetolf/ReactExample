@@ -1,0 +1,21 @@
+.Cluster  {
+    font-size: 13px;
+    font-weight: 500;
+    margin: 5px;
+    writing-mode: vertical-rl;
+    justify-content:center;
+    align-items:center;
+    text-align: center;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    box-sizing: border-box;
+    background-color: white;
+    width: 25px;
+
+
+}
+
+
+
+
+
