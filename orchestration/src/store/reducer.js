@@ -34,7 +34,7 @@ const initialList =  (
                 // },
                 {
                     "id": 83,
-                    "xml_id": "73",
+                    "xml_id": "69",
                     "orchestration_date": "23.05-2019 06:39:50",
                     "verdict": "Successful",
                     "service_name": "orchestration-service-mg-lau1",
@@ -200,7 +200,7 @@ const initialList =  (
                     "id": 76,
                     "xml_id": "71",
                     "orchestration_date": "22.05-2019 06:39:50",
-                    "verdict": "Successful",
+                    "verdict": "Failed",
                     "service_name": "orchestration-service-mg-lau1",
                     "node_type": "DNSF",
                     "cluster_type": "secondary",

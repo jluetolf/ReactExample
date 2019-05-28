@@ -1,0 +1,79 @@
+
+.NodeDetailRow {
+    display: flex;
+    flex-direction: row;
+}
+.NodeDetailRow .NodeDetailOverview, .NodeDetailVerification, .NodeDetailConfiguratorLog,.NodeDetailFiles  {
+    align-items: center;
+    margin: 3px;
+    padding: 5px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: white;
+}
+
+.NodeDetailRow .NodeDetailVerification {
+
+    min-width: 300px;
+}
+
+.NodeDetailRow .NodeDetailOverview {
+
+    min-width: 160px;
+}
+
+.NodeDetailRow .NodeDetailFiles {
+
+   display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+.NodeDetailRow .NodeDetailConfiguratorLog {
+
+
+}
+
+.NodeDetailRow .verdict {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 500;
+
+}
+
+.NodeDetailRow #verificationTitle, #configuratorLogTitle  {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.NodeDetailRow #verificationFile, #verificationBefore, #verificationAfter  {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.NodeDetailRow #verificationTimestampBeforeValue, #verificationTimestampAfterValue, #verificationFileValue  {
+    float: right;
+    font-size: 15px;
+    font-weight: 400;
+
+}
+
+
+
+/*
+
+ <div className="NodeDetailVerification">
+                <div id="verificationTitle">Verification</div>
+                <div id="verificationFile"><div id="verification">Verificationfile</div> {response.verificationFile} </div>
+                <div id="verificationBefore"><div id="verificationTimestampBefore">VerificationTimestampBefore</div> {response.verificationTimestampBefore} </div>
+                <div id="verificationAfter"><div id="verificationTimestampAfter">VerificationTimestampAfter</div>{response.verificationTimestampAfter} </div>
+            </div>
+ */

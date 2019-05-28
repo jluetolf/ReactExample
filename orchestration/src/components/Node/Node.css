@@ -28,7 +28,7 @@
 }
 
 
-.Node .btn {
+.btn {
     border-radius: 5px;
     border: 1px solid black;
     background-color: white;
@@ -40,12 +40,12 @@
 
 
 /* Blue */
-.Node .info {
+.info {
     border-color: #aeaeae;
     color: black;
 }
 
-.Node .info:hover {
+.info:hover {
     background: #808080;
     color: white;
 }

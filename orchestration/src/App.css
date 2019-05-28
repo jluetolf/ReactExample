@@ -1,7 +1,8 @@
 .App {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-items: center;
+  align-items: center;
 }
 
 .App .Left {
