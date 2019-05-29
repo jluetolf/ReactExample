@@ -1,0 +1,83 @@
+
+.NodeDNSFDetailRow {
+    display: flex;
+    flex-direction: row;
+}
+.NodeDNSFDetailRow .nodeDetailOverview, .nodeDetailVerification, .nodeDetailStandardOutput, .nodeDetailErrorOutput, .nodeDetailFiles  {
+    align-items: center;
+    margin: 3px;
+    padding: 5px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: white;
+}
+.NodeDNSFDetailRow .nodeDetailOverview {
+    width: 15%;
+}
+.NodeDNSFDetailRow .nodeDetailVerification {
+    width: 20%;
+}
+.NodeDNSFDetailRow .nodeDetailStandardOutput {
+    width: 30%;
+}
+.NodeDNSFDetailRow .nodeDetailErrorOutput {
+    width: 30%;
+}
+.NodeDNSFDetailRow .nodeDetailFiles {
+    width: 5%;
+}
+
+.NodeDNSFDetailRow #verificationFileName {
+
+    margin-right: 10px;
+
+}
+
+.NodeDNSFDetailRow .nodeDetailOverview {
+    
+}
+
+.NodeDNSFDetailRow .nodeDetailFiles {
+
+   display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+.NodeDNSFDetailRow .nodeDetailConfiguratorLog {
+
+
+}
+
+.NodeDNSFDetailRow .verdict {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 500;
+
+}
+
+.NodeDNSFDetailRow #verificationTitle, #nodeDetailStandardOutputTitle, #nodeDetailErrorOutputTitle   {
+    font-size: 15px;
+    font-weight: 500;
+}
+    
+.NodeDNSFDetailRow .verificationFile, .verificationBefore, .verificationAfter  {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.NodeDNSFDetailRow #verificationTimestampBeforeValue, #verificationTimestampAfterValue, #verificationFileValue  {
+    float: right;
+    font-size: 15px;
+    font-weight: 400;
+
+}
+
