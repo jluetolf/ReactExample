@@ -29,3 +29,4 @@
 /__MACOSX/http--01-starting-setup/src/containers/Blog/._Blog.js
 /http--01-starting-setup/node_modules/.bin/*
 /http--01-starting-setup/node_modules
+/redux--01-start/.idea
