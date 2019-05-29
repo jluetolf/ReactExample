@@ -31,7 +31,7 @@ class App extends Component {
                     <Switch>
                         <Route path="/xml" exact component={XMLDisplay}/>
                         <Route path="/" exact component={Overview}/>
-                        <Route path="/detail" exact component={NodeDetail}/>
+                        <Route path="/detail/:id" exact component={NodeDetail}/>
                         {/*<Route path="/:nodeType/:cluster/:id" exact component={NodeDetail}/>*/}
                         {/*<Route path="/:id" exact component={FullPost}/>*/}
                     </Switch>

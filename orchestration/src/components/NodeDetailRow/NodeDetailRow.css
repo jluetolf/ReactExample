@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: row;
 }
-.NodeDetailRow .NodeDetailOverview, .NodeDetailVerification, .NodeDetailConfiguratorLog,.NodeDetailFiles  {
+.NodeDetailRow .nodeDetailOverview, .nodeDetailVerification, .nodeDetailConfiguratorLog,.nodeDetailFiles  {
     align-items: center;
     margin: 3px;
     padding: 5px;
@@ -14,17 +14,18 @@
     background-color: white;
 }
 
-.NodeDetailRow .NodeDetailVerification {
+.NodeDetailRow #verificationFileName {
 
-    min-width: 300px;
+    margin-right: 10px;
+
 }
 
-.NodeDetailRow .NodeDetailOverview {
+.NodeDetailRow .nodeDetailOverview {
 
     min-width: 160px;
 }
 
-.NodeDetailRow .NodeDetailFiles {
+.NodeDetailRow .nodeDetailFiles {
 
    display: flex;
     flex-direction: column;
@@ -33,7 +34,7 @@
 
 
 
-.NodeDetailRow .NodeDetailConfiguratorLog {
+.NodeDetailRow .nodeDetailConfiguratorLog {
 
 
 }
@@ -47,12 +48,17 @@
 
 }
 
+.NodeDetailRow .nodeDetailFiles #xml, #logfile {
+    width: 64px;
+    margin: 5px;
+}
+
 .NodeDetailRow #verificationTitle, #configuratorLogTitle  {
     font-size: 15px;
     font-weight: 500;
 }
 
-.NodeDetailRow #verificationFile, #verificationBefore, #verificationAfter  {
+.NodeDetailRow .verificationFile, .verificationBefore, .verificationAfter  {
     display: flex;
     justify-content: space-between;
     font-size: 15px;
@@ -67,13 +73,3 @@
 }
 
 
-
-/*
-
- <div className="NodeDetailVerification">
-                <div id="verificationTitle">Verification</div>
-                <div id="verificationFile"><div id="verification">Verificationfile</div> {response.verificationFile} </div>
-                <div id="verificationBefore"><div id="verificationTimestampBefore">VerificationTimestampBefore</div> {response.verificationTimestampBefore} </div>
-                <div id="verificationAfter"><div id="verificationTimestampAfter">VerificationTimestampAfter</div>{response.verificationTimestampAfter} </div>
-            </div>
- */

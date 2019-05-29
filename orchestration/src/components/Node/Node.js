@@ -46,7 +46,8 @@ const Node = (props) => {
             <div id="node_type">{props.nodeType}</div>
 
             <div id="cluster_name" title={serverList}>{servers}</div>
-            <Link to={{pathname: '/detail', orchestrationNodes: props.orchestrationNodes}}>
+
+            <Link to= {{pathname: '/detail/' + props.nodeType + '-' + props.id , orchestrationNodes: props.orchestrationNodes, nodeType: props.nodeType, id: props.id}}>
                 <button id="detail" type="button" className="btn info">Detail</button>
             </Link>
         </div>

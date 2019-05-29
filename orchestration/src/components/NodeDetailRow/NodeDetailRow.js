@@ -43,7 +43,7 @@ class NodeDetailRow extends Component {
 
         return (
             <div className="NodeDetailRow">
-                <div className="NodeDetailOverview">
+                <div className="nodeDetailOverview">
                     <div id="node_type">{node.node_type}</div>
                     <div className="verdict">
                         <img id="bullet" src={bullet} alt="{grey}"></img>
@@ -51,26 +51,26 @@ class NodeDetailRow extends Component {
                     </div>
                     <div id="date">{node.orchestration_date} </div>
                 </div>
-                <div className="NodeDetailVerification">
+                <div className="nodeDetailVerification">
                     <div id="verificationTitle">Verification</div>
-                    <div id="verificationFile">
-                        <div id="verification">File</div>
+                    <div className="verificationFile">
+                        <div id="verificationFileName">File</div>
                         <div id="verificationFileValue">{response.verificationFile}</div>
                     </div>
-                    <div id="verificationBefore">
+                    <div className="verificationBefore">
                         <div id="verificationTimestampBefore">Timestamp-Before</div>
                         <div id="verificationTimestampBeforeValue">{response.verificationTimestampBefore} </div>
                     </div>
-                    <div id="verificationAfter">
+                    <div className="verificationAfter">
                         <div id="verificationTimestampAfter">Timestamp-After</div>
                         <div id="verificationTimestampBeforeValue">{response.verificationTimestampAfter} </div>
                     </div>
                 </div>
-                <div className="NodeDetailConfiguratorLog">
+                <div className="nodeDetailConfiguratorLog">
                     <div id="configuratorLogTitle">Configurator Log</div>
                     <div id="configuratorLog">{response.configuratorLog}</div>
                 </div>
-                <div className="NodeDetailFiles">
+                <div className="nodeDetailFiles">
 
 
                     <button id="xml" type="button"

@@ -99,16 +99,16 @@ const OrchestrationRow = (props) => {
     }
 
     if (secondaryListDRF.length > 0 || primaryListDRF.length > 0 ) {
-        nodeGroupList.push(<NodeGroup secondaryNodes={secondaryListDRF} primaryNodes={primaryListDRF} nodeType="DRF" key="DRF"/>);
+        nodeGroupList.push(<NodeGroup secondaryNodes={secondaryListDRF} primaryNodes={primaryListDRF} nodeType="DRF" id={props.orchestration.id} key="DRF"/>);
     }
     if (secondaryListSS7F.length > 0 || primaryListSS7F.length > 0 ) {
-        nodeGroupList.push(<NodeGroup secondaryNodes={secondaryListSS7F} primaryNodes={primaryListSS7F} nodeType="SS7F" key="SS7F"/>);
+        nodeGroupList.push(<NodeGroup secondaryNodes={secondaryListSS7F} primaryNodes={primaryListSS7F} nodeType="SS7F" id={props.orchestration.id} key="SS7F"/>);
     }
     if (secondaryListDSF.length > 0 || primaryListDSF.length > 0 ) {
-        nodeGroupList.push(<NodeGroup secondaryNodes={secondaryListDSF} primaryNodes={primaryListDSF} nodeType="DSF" key="DSF"/>);
+        nodeGroupList.push(<NodeGroup secondaryNodes={secondaryListDSF} primaryNodes={primaryListDSF} nodeType="DSF" id={props.orchestration.id} key="DSF"/>);
     }
     if (secondaryListDNSF.length > 0 || primaryListDNSF.length > 0 ) {
-        nodeGroupList.push(<NodeGroup secondaryNodes={secondaryListDNSF} primaryNodes={primaryListDNSF} nodeType="DNSF" key="DNSF"/>);
+        nodeGroupList.push(<NodeGroup secondaryNodes={secondaryListDNSF} primaryNodes={primaryListDNSF} nodeType="DNSF" id={props.orchestration.id} key="DNSF"/>);
     }
 
     if (secondaryPreOrchestrationTestList.length > 0 || primaryPreOrchestrationTestList.length > 0 ) {
