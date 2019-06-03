@@ -314,6 +314,8 @@ const initialState = {
     startDate: new Date(),
     endDate: new Date(),
     orchestrationList: initialList,
+    serverList: ["orchestration-service-mg-lau1", "orchestration-service-mg-bau1", "orchestration-service-mg-wau1"],
+    selectedServerList: ["orchestration-service-mg-wau1"],
     error: null
 };
 
