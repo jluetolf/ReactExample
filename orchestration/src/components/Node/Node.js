@@ -42,25 +42,17 @@ const Node = (props) => {
 
     return (
         <div className="Node">
-            <div className="FirstRow">
-                <img id="bullet" src={bullet} alt="{green}"></img>
-                <div id="node_type">{props.nodeType}</div>
-                <div id="cluster_name" title={serverList}>{servers}</div>
-            </div>
-            <div className="SecondRow">
-                <button type="button" className="btn info">Orchestrate</button>
-                <Link to= {{pathname: '/detail', orchestrationNodes: props.orchestrationNodes}}>
-                    <button id="detail" type="button" className="btn info">Detail</button>
-                </Link>
-            </div>
+            <img id="bullet" src={bullet} alt="{grey}"></img>
+            <div id="node_type">{props.nodeType}</div>
+
+            <div id="cluster_name" title={serverList}>{servers}</div>
+
+            <Link to= {{pathname: '/detail/' + props.nodeType + '-' + props.id , orchestrationNodes: props.orchestrationNodes, nodeType: props.nodeType, id: props.id}}>
+                <button id="detail" type="button" className="btn info">Detail</button>
+            </Link>
         </div>
 
     );
-    {/*<Node orchestrationNodes={primaryListDRF} nodeType="DRF" key="DRF"/>);*/
-    }
-
-
-
 }
 
 export default Node;

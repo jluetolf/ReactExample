@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 //import axiosinstance from '../../axios';
 import {connect} from 'react-redux';
-import FullOrchestrationRow from '../../components/FullOrchestrationRow/FullOrchestrationRow';
+import OrchestrationRow from '../../components/OrchestrationRow/OrchestrationRow';
 import './OrchestrationList.css';
 
 //import moment from 'moment';
@@ -17,7 +17,7 @@ class OrchestrationList extends Component {
     constructor(props) {
         super(props);
         this.fullOrchestrationRows = this.props.orchestrationList.map(row => {
-            return <FullOrchestrationRow orchestration={row} key={row.id}/>
+            return <OrchestrationRow orchestration={row} key={row.id}/>
         });
     }
 

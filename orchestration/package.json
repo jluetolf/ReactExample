@@ -8,14 +8,21 @@
     "material-table": "^1.36.2",
     "moment": "^2.24.0",
     "react": "^16.8.6",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-datepicker": "^2.5.0",
     "react-datetime": "^2.16.3",
     "react-dom": "^16.8.6",
+    "react-dom-factories": "^1.0.2",
+    "react-native-material-selectize": "^1.16.0",
     "react-redux": "^7.0.3",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
-    "redux": "^4.0.1"
+    "react-select": "^3.0.4",
+    "react-selectize": "^3.0.1",
+    "react-transition-group": "^1.2.1",
+    "redux": "^4.0.1",
+    "xml-formatter": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

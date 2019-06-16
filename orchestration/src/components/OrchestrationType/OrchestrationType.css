@@ -1,7 +1,7 @@
 .OrchestrationType  {
     display: flex;
     flex-direction: column;
-    width: 175px;
+    justify-content: center;
     margin: 5px;
     padding: 5px;
     text-align: left;
@@ -12,15 +12,26 @@
     background-color: white;
 }
 
-.OrchestrationType #name {
-    margin-top: 10px;
+.OrchestrationType .verdict {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+.OrchestrationType  #verdict{
     font-size: 15px;
     font-weight: 500;
 }
 
-.OrchestrationType #date {
-    font-size: 15px;
-    font-weight: 500;
+.OrchestrationType  #user, #name {
+    font-size: 13px;
+}
+.OrchestrationType  #bullet{
+    margin: 0px 5px 0px -4px;
 }
 
 
+.OrchestrationType #date  {
+    font-size: 15px;
+    font-weight: 500;
+}
