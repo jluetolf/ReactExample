@@ -1,334 +1,269 @@
-const initialList =  (
+const initialList = (
     [
         {
-            "id": 51,
-            "start_timestamp": "23.05-2019 06:39:50",
-            "stop_timestamp": "23.05-2019 06:45:50",
-            "verdict": "Successful",
-            "orchestrationType": "Full",
-            "orchestration_user": "USR_JOLUET",
-            "error": null,
+            "id": 10,
+            "start_date": "2019-06-16T15:52:48.377+0000",
+            "end_date": "2019-06-16T15:52:48.000+0000",
+            "orchestration_type": "Full",
+            "verdict": "Failed",
+            "error": "Orchestration if the secondary nodes failed",
             "nodes": [
-                // {
-                //     "id": 81,
-                //     "xml_id": "74",
-                //     "start_timestamp": "23.05-2019 06:39:50",
-                //     "stop_timestamp": "23.05-2019 06:45:50",
-                //     "verdict": "Successful",
-                //     "service_name": "orchestration-service-mg-lau1",
-                //     "node_type": "DRF",
-                //     "cluster_type": "secondary",
-                //     "cluster_name": "LAU1",
-                //     "server": "csvdf221",
-                //     "response": "{\"verdict\":\"Successful\",\"code\":0,\"serviceName\":\"orchestration-service-mg-lau1\",\"startdate\":\"23.05.2019 06:41:26\",\"server\":\"csvdf221\",\"nodetype\":\"DRF\",\"cluster\":\"secondary\",\"standardOutput\":null,\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"22.05.2019 14:07:30\",\"verificationTimestampAfter\":\"23.05.2019 06:41:20\",\"configuratorLog\":\"2 csvmg227 nb1[26510]: Stopped\\nMay 23 06:41:22 csvmg227 configurator: EXPORT [End of csv generation of ALL configuration files (csv)]\\nMay 23 06:41:23 csvmg227 configurator: EXPORT [Check config -> OK]\\nMay 23 06:41:23 csvmg227 configurator: EXPORT [Config exported locally]\\nMay 23 06:41:23 csvmg227 configurator: EXPORT [Export OK on TDRF1]\\nMay 23 06:41:23 csvmg227 configurator: EXPORT [End of csv generation]\\nMay 23 06:41:23 csvmg227 configurator: EXPORT [CHECK CONFIG and EXPORT TO FRONT SYSTEMS -> OK]\\nMay 23 06:41:23 csvmg227 configurator_drf[25781]: NIV1: main() commande: <./export.sh base bfr2501 TDB1 3307 N161214_K2R_tmp N161214_K2R /home/ultracomp/HALYSultracomp/own/system_halys.conf> executed\\nMay 23 06:41:23 csvmg227 configurator_drf[25781]: NIV0: [CAM PROCESS]: STOP EXPORTATION CONFIG : SUCCESS (8469 ms) !\\nMay 23 06:41:23 csvmg227 configurator_drf[25781]: NIV0: [CAM PROCESS]: END DRF PROCESSING FILE </opt/update/xmlfiles_drf/2019_05_23_06-40-22_DRF_FULL.xml> : SUCCESS (55682 ms) !\\n\"}"
-                // },
-                // {
-                //     "id": 82,
-                //     "xml_id": "76",
-                //     "start_timestamp": "23.05-2019 06:39:50",
-                //     "stop_timestamp": "23.05-2019 06:45:50",
-                //     "verdict": "Successful",
-                //     "service_name": "orchestration-service-mg-lau1-ss7f",
-                //     "node_type": "SS7F",
-                //     "cluster_type": "secondary",
-                //     "cluster_name": "LAU1",
-                //     "server": "css7f601",
-                //     "response": "{\"verdict\":\"Successful\",\"code\":0,\"serviceName\":\"orchestration-service-mg-lau1-ss7f\",\"startdate\":\"23.05.2019 06:42:15\",\"server\":\"css7f601\",\"nodetype\":\"SS7F\",\"cluster\":\"secondary\",\"standardOutput\":null,\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"22.05.2019 14:09:25\",\"verificationTimestampAfter\":\"23.05.2019 06:41:59\",\"configuratorLog\":\"v generation of ALL configuration files (csv)]\\nMay 23 06:42:12 csvmg609 configurator: EXPORT [Check config -> OK]\\nMay 23 06:42:12 csvmg609 configurator: EXPORT [Config exported locally]\\nMay 23 06:42:13 csvmg609 configurator: EXPORT [Export OK on TRH3]\\nMay 23 06:42:13 csvmg609 configurator: EXPORT [Export OK on TRH4]\\nMay 23 06:42:13 csvmg609 configurator: EXPORT [End of csv generation]\\nMay 23 06:42:13 csvmg609 configurator: EXPORT [CHECK CONFIG and EXPORT TO FRONT SYSTEMS -> OK]\\nMay 23 06:42:13 csvmg609 configurator_ss7f[13491]: NIV1: main() commande: <./export.sh base bfr2501 COMMON-DB3DB4 3307 SS7F_111017_live_tmp SS7F_111017_live /home/ultracomp/HALYSultracomp/own/system_halys.conf> executed\\nMay 23 06:42:13 csvmg609 configurator_ss7f[13491]: NIV0: [CAM PROCESS]: STOP EXPORTATION CONFIG : SUCCESS (17730 ms) !\\nMay 23 06:42:13 csvmg609 configurator_ss7f[13491]: NIV0: [CAM PROCESS]: END SS7F PROCESSING FILE </opt/update/xmlfiles/2019_05_23_06-40-22_SS7F_FULL.xml> : SUCCESS (104780 ms) !\\n\"}"
-                // },
                 {
-                    "id": 83,
-                    "xml_id": "69",
-                    "start_timestamp": "23.05-2019 06:39:50",
-                    "stop_timestamp": "23.05-2019 06:45:50",
-                    "verdict": "Successful",
-                    "service_name": "orchestration-service-mg-lau1",
-                    "node_type": "DSF",
-                    "cluster_type": "secondary",
-                    "cluster_name": "LAU1",
-                    "server": "csvsf223",
-                    "response": "{\"verdict\":\"Successful\",\"code\":0,\"serviceName\":\"orchestration-service-mg-lau1\",\"startdate\":\"23.05.2019 06:41:11\",\"server\":\"csvsf223\",\"nodetype\":\"DSF\",\"cluster\":\"secondary\",\"standardOutput\":\"0\\n\",\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"22.05.2019 14:07:13\",\"verificationTimestampAfter\":\"23.05.2019 06:41:06\",\"configuratorLog\":\" 23 06:41:08 csvmg227 nb1[26027]: Stopped\\nMay 23 06:41:08 csvmg227 configurator: EXPORT [End of csv generation of ALL configuration files (csv)]\\nMay 23 06:41:08 csvmg227 configurator: EXPORT [Check config -> OK]\\nMay 23 06:41:08 csvmg227 configurator: EXPORT [Config exported locally]\\nMay 23 06:41:09 csvmg227 configurator: EXPORT [Export OK on TDSF1]\\nMay 23 06:41:09 csvmg227 configurator: EXPORT [End of csv generation]\\nMay 23 06:41:09 csvmg227 configurator: EXPORT [CHECK CONFIG and EXPORT TO FRONT SYSTEMS -> OK]\\nMay 23 06:41:09 csvmg227 configurator_dsf[25777]: NIV1: main() commande: <./export.sh base bfr2501 TDB1 3307 N240418_DSF_tmp N240418_DSF /home/ultracomp/own/system_halys.conf.dsf> executed\\nMay 23 06:41:09 csvmg227 configurator_dsf[25777]: NIV0: [CAM PROCESS]: STOP EXPORTATION CONFIG : SUCCESS (5872 ms) !\\nMay 23 06:41:09 csvmg227 configurator_dsf[25777]: NIV0: [CAM PROCESS]: END DSF PROCESSING FILE </opt/update/xmlfiles_dsf/2019_05_23_06-40-22_DSF_FULL.xml> : SUCCESS (40978 ms) !\\n\"}"
-                },
-                {
-                    "id": 84,
-                    "xml_id": "75",
-                    "start_timestamp": "23.05-2019 06:39:50",
-                    "stop_timestamp": "23.05-2019 06:45:50",
-                    "verdict": "Successful",
+                    "id": 11,
+                    "xml_id": "13",
+                    "start_date": "2019-06-16T15:53:12.771+0000",
+                    "end_date": "2019-06-16T15:54:16.618+0000",
+                    "verdict": "Failed",
                     "service_name": "orchestration-service-mg-lau1",
                     "node_type": "DNSF",
                     "cluster_type": "secondary",
-                    "cluster_name": "LAU1",
                     "server": "csvns229",
-                    "response": "{\"verdict\":\"Successful\",\"code\":0,\"serviceName\":\"orchestration-service-mg-lau1\",\"startdate\":\"23.05.2019 06:40:30\",\"server\":\"csvns229\",\"nodetype\":\"DNSF\",\"cluster\":\"secondary\",\"standardOutput\":\"Copying succeeded\\nCommand exexuted: ssh ultracomp@csvns229 /opt/dnsupdate/dnsupdate.pl -f -e /opt/dnsupdate/xmlfiles/2019_05_23_06-40-22_DNSF_FULL.xmlStarting dnsupdate.pl\\nCalling dnsupdate.pl succeeded\\nResult code is 0\",\"errorOutput\":\"Wide character in print at /opt/dnsupdate/dnsupdate.pm line 176.\\nWide character in print at /opt/dnsupdate/dnsupdate.pm line 206.\\n\",\"verificationFile\":\"/etc/named.d/include/named.conf.USAVZ\",\"verificationTimestampBefore\":\"22.05.2019 14:08:18\",\"verificationTimestampAfter\":\"23.05.2019 06:40:28\",\"configuratorLog\":null}"
-                },
-                // {
-                //     "id": 85,
-                //     "xml_id": "74",
-                //     "start_timestamp": "23.05-2019 06:39:50",
-                //     "stop_timestamp": "23.05-2019 06:45:50",
-                //     "verdict": "Successful",
-                //     "service_name": "orchestration-service-mg-bau1",
-                //     "node_type": "DRF",
-                //     "cluster_type": "primary",
-                //     "cluster_name": "BAU1",
-                //     "server": "csvdf220",
-                //     "response": "{\"verdict\":\"Successful\",\"code\":0,\"serviceName\":\"orchestration-service-mg-bau1\",\"startdate\":\"23.05.2019 06:43:13\",\"server\":\"csvdf220\",\"nodetype\":\"DRF\",\"cluster\":\"primary\",\"standardOutput\":null,\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"22.05.2019 14:09:09\",\"verificationTimestampAfter\":\"23.05.2019 06:43:07\",\"configuratorLog\":\"9 csvmg226 nb1[28805]: Stopped\\nMay 23 06:43:09 csvmg226 configurator: EXPORT [End of csv generation of ALL configuration files (csv)]\\nMay 23 06:43:10 csvmg226 configurator: EXPORT [Check config -> OK]\\nMay 23 06:43:10 csvmg226 configurator: EXPORT [Config exported locally]\\nMay 23 06:43:10 csvmg226 configurator: EXPORT [Export OK on TDRF2]\\nMay 23 06:43:10 csvmg226 configurator: EXPORT [End of csv generation]\\nMay 23 06:43:10 csvmg226 configurator: EXPORT [CHECK CONFIG and EXPORT TO FRONT SYSTEMS -> OK]\\nMay 23 06:43:10 csvmg226 configurator_drf[28678]: NIV1: main() commande: <./export.sh base bfr2501 TDB2 3307 N161214_K2R_tmp N161214_K2R /home/ultracomp/HALYSultracomp/own/system_halys.conf> executed\\nMay 23 06:43:10 csvmg226 configurator_drf[28678]: NIV0: [CAM PROCESS]: STOP EXPORTATION CONFIG : SUCCESS (8720 ms) !\\nMay 23 06:43:10 csvmg226 configurator_drf[28678]: NIV0: [CAM PROCESS]: END DRF PROCESSING FILE </opt/update/xmlfiles_drf/2019_05_23_06-42-15_DRF_FULL.xml> : SUCCESS (53372 ms) !\\n\"}"
-                // },
-                // {
-                //     "id": 86,
-                //     "xml_id": "76",
-                //     "start_timestamp": "23.05-2019 06:39:50",
-                //     "stop_timestamp": "23.05-2019 06:45:50",
-                //     "verdict": "Successful",
-                //     "service_name": "orchestration-service-mg-bau1-ss7f",
-                //     "node_type": "SS7F",
-                //     "cluster_type": "primary",
-                //     "cluster_name": "BAU1",
-                //     "server": "css7f600",
-                //     "response": "{\"verdict\":\"Successful\",\"code\":0,\"serviceName\":\"orchestration-service-mg-bau1-ss7f\",\"startdate\":\"23.05.2019 06:43:38\",\"server\":\"css7f600\",\"nodetype\":\"SS7F\",\"cluster\":\"primary\",\"standardOutput\":null,\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"22.05.2019 14:09:25\",\"verificationTimestampAfter\":\"23.05.2019 06:43:24\",\"configuratorLog\":\"\"}"
-                // },
-                {
-                    "id": 87,
-                    "xml_id": "73",
-                    "start_timestamp": "23.05-2019 06:39:50",
-                    "stop_timestamp": "23.05-2019 06:45:50",
-                    "verdict": "Successful",
-                    "service_name": "orchestration-service-mg-bau1",
-                    "node_type": "DSF",
-                    "cluster_type": "primary",
-                    "cluster_name": "BAU1",
-                    "server": "csvsf220",
-                    "response": "{\"verdict\":\"Successful\",\"code\":0,\"serviceName\":\"orchestration-service-mg-bau1\",\"startdate\":\"23.05.2019 06:42:16\",\"server\":\"csvsf220\",\"nodetype\":\"DSF\",\"cluster\":\"primary\",\"standardOutput\":\"65280\\n\",\"errorOutput\":null,\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"csvsf220: Name or service not known\",\"verificationTimestampAfter\":\"csvsf220\",\"configuratorLog\":\"\"}"
+                    "response": "{\"verdict\":\"Failed\",\"code\":-1,\"serviceName\":\"orchestration-service-mg-lau1\",\"start_timestamp\":\"16.06.2019 15:54:13\",\"stop_timestamp\":\"16.06.2019 15:54:15\",\"server\":\"csvns229\",\"nodetype\":\"DNSF\",\"cluster\":\"secondary\",\"standardOutput\":null,\"errorOutput\":\"Exception: java.lang.NullPointerException\",\"verificationFile\":\"/etc/named.d/include/named.conf.USAVZ\",\"verificationTimestampBefore\":null,\"verificationTimestampAfter\":null,\"configuratorLog\":null}"
                 },
                 {
-                    "id": 88,
-                    "xml_id": "75",
-                    "start_timestamp": "23.05-2019 06:39:50",
-                    "stop_timestamp": "23.05-2019 06:45:50",
-                    "verdict": "Successful",
-                    "service_name": "orchestration-service-mg-lau1",
-                    "node_type": "DNSF",
-                    "cluster_type": "primary",
-                    "cluster_name": "BAU1",
-                    "server": "csvns229",
-                    "response": "{\"verdict\":\"Successful\",\"code\":0,\"serviceName\":\"orchestration-service-mg-lau1\",\"startdate\":\"23.05.2019 06:42:18\",\"server\":\"csvns229\",\"nodetype\":\"DNSF\",\"cluster\":\"secondary\",\"standardOutput\":\"Copying succeeded\\nCommand exexuted: ssh ultracomp@csvns229 /opt/dnsupdate/dnsupdate.pl -f -e /opt/dnsupdate/xmlfiles/2019_05_23_06-42-15_DNSF_FULL.xmlStarting dnsupdate.pl\\nCalling dnsupdate.pl succeeded\\nResult code is 0\",\"errorOutput\":\"Wide character in print at /opt/dnsupdate/dnsupdate.pm line 176.\\nWide character in print at /opt/dnsupdate/dnsupdate.pm line 206.\\n\",\"verificationFile\":\"/etc/named.d/include/named.conf.USAVZ\",\"verificationTimestampBefore\":\"23.05.2019 06:40:28\",\"verificationTimestampAfter\":\"23.05.2019 06:42:16\",\"configuratorLog\":null}"
-                }
-            ],
-            "tests": [
-                {
-                    "id": 1,
-                    "test_date": "22.05-2019 06:39:50",
-                    "verdict": "Successful",
-                    "test_type": "PreOrchestration",
-                    "cluster_type": "secondary",
-                    "cluster_name": "LAU1",
-                    "server": "csvns229",
-                    "dns_results": "[{\"verdict\":\"Successful\",\"host\":\"csvns229\",\"request\":\"9B 5F 00 00 00 01 00 00 00 00 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 \",\"answer\":\"9B 5F 84 00 00 01 00 01 00 02 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 C0 0C 00 01 00 01 00 00 0E 10 00 04 C2 96 C7 5C C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 31 00 C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 32 00 \",\"error\":null,\"ipaddress\":\"194.150.199.92\",\"lookup\":\"internet.mnc096.mcc228.gprs.\",\"classname\":\"IN\"},{\"verdict\":\"Successful\",\"host\":\"csvns229\",\"request\":\"96 59 00 00 00 01 00 00 00 00 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 \",\"answer\":\"96 59 84 00 00 01 00 01 00 02 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 C0 0C 00 01 00 01 00 00 0E 10 00 04 C2 96 C7 5C C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 32 00 C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 31 00 \",\"error\":null,\"ipaddress\":\"194.150.199.92\",\"lookup\":\"internet.mnc096.mcc228.gprs.\",\"classname\":\"IN\"}]",
-                    "gtpecho_results": "[{\"verdict\":\"Successful\",\"host\":\"185.47.24.193\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"91.221.82.121\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"195.211.13.120\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"185.47.24.193\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"91.221.82.121\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"195.211.13.120\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null}]"
-                },
-                {
-                    "id": 2,
-                    "test_date": "22.05-2019 06:39:50",
-                    "verdict": "Successful",
-                    "test_type": "PostOrchestration",
-                    "cluster_type": "secondary",
-                    "cluster_name": "LAU1",
-                    "server": "csvns229",
-                    "dns_results": "[{\"verdict\":\"Successful\",\"host\":\"csvns229\",\"request\":\"18 44 00 00 00 01 00 00 00 00 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 \",\"answer\":\"18 44 84 00 00 01 00 01 00 02 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 C0 0C 00 01 00 01 00 00 0E 10 00 04 C2 96 C7 5C C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 31 00 C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 32 00 \",\"error\":null,\"ipaddress\":\"194.150.199.92\",\"lookup\":\"internet.mnc096.mcc228.gprs.\",\"classname\":\"IN\"},{\"verdict\":\"Successful\",\"host\":\"csvns229\",\"request\":\"5B ED 00 00 00 01 00 00 00 00 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 \",\"answer\":\"5B ED 84 00 00 01 00 01 00 02 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 C0 0C 00 01 00 01 00 00 0E 10 00 04 C2 96 C7 5C C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 32 00 C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 31 00 \",\"error\":null,\"ipaddress\":\"194.150.199.92\",\"lookup\":\"internet.mnc096.mcc228.gprs.\",\"classname\":\"IN\"}]",
-                    "gtpecho_results": "[{\"verdict\":\"Successful\",\"host\":\"185.47.24.193\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"91.221.82.121\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"195.211.13.120\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"185.47.24.193\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"91.221.82.121\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"195.211.13.120\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null}]"
-                },
-                {
-                    "id": 3,
-                    "test_date": "22.05-2019 06:39:50",
-                    "verdict": "Successful",
-                    "test_type": "PreOrchestration",
-                    "cluster_type": "primary",
-                    "cluster_name": "BAU1",
-                    "server": "csvns228",
-                    "dns_results": "[{\"verdict\":\"Successful\",\"host\":\"csvns229\",\"request\":\"2B C0 00 00 00 01 00 00 00 00 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 \",\"answer\":\"2B C0 84 00 00 01 00 01 00 02 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 C0 0C 00 01 00 01 00 00 0E 10 00 04 C2 96 C7 5C C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 31 00 C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 32 00 \",\"error\":null,\"ipaddress\":\"194.150.199.92\",\"lookup\":\"internet.mnc096.mcc228.gprs.\",\"classname\":\"IN\"},{\"verdict\":\"Successful\",\"host\":\"csvns229\",\"request\":\"3F 2F 00 00 00 01 00 00 00 00 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 \",\"answer\":\"3F 2F 84 00 00 01 00 01 00 02 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 C0 0C 00 01 00 01 00 00 0E 10 00 04 C2 96 C7 5C C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 32 00 C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 31 00 \",\"error\":null,\"ipaddress\":\"194.150.199.92\",\"lookup\":\"internet.mnc096.mcc228.gprs.\",\"classname\":\"IN\"}]",
-                    "gtpecho_results": "[{\"verdict\":\"Successful\",\"host\":\"185.47.24.193\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"91.221.82.121\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"195.211.13.120\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"185.47.24.193\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"91.221.82.121\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"195.211.13.120\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null}]"
-                },
-                {
-                    "id": 4,
-                    "test_date": "22.05-2019 06:39:50",
-                    "verdict": "Successful",
-                    "test_type": "PostOrchestration",
-                    "cluster_type": "primary",
-                    "cluster_name": "BAU1",
-                    "server": "csvns228",
-                    "dns_results": "[{\"verdict\":\"Successful\",\"host\":\"csvns229\",\"request\":\"2B C0 00 00 00 01 00 00 00 00 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 \",\"answer\":\"2B C0 84 00 00 01 00 01 00 02 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 C0 0C 00 01 00 01 00 00 0E 10 00 04 C2 96 C7 5C C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 31 00 C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 32 00 \",\"error\":null,\"ipaddress\":\"194.150.199.92\",\"lookup\":\"internet.mnc096.mcc228.gprs.\",\"classname\":\"IN\"},{\"verdict\":\"Successful\",\"host\":\"csvns229\",\"request\":\"3F 2F 00 00 00 01 00 00 00 00 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 \",\"answer\":\"3F 2F 84 00 00 01 00 01 00 02 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 C0 0C 00 01 00 01 00 00 0E 10 00 04 C2 96 C7 5C C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 32 00 C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 31 00 \",\"error\":null,\"ipaddress\":\"194.150.199.92\",\"lookup\":\"internet.mnc096.mcc228.gprs.\",\"classname\":\"IN\"}]",
-                    "gtpecho_results": "[{\"verdict\":\"Successful\",\"host\":\"185.47.24.193\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"91.221.82.121\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"195.211.13.120\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"185.47.24.193\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"91.221.82.121\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"195.211.13.120\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null}]"
-                }
-            ]
-        },
-        {
-            "id": 50,
-            "orchestration_date": "22.05-2019 06:39:50",
-            "verdict": "Successful",
-            "orchestrationType": "Full",
-            "orchestration_user": "USR_JOLUET",
-            "error": null,
-            "nodes": [
-                // {
-                //     "id": 73,
-                //     "xml_id": "70",
-                //     "start_timestamp": "23.05-2019 06:39:50",
-                //     "stop_timestamp": "23.05-2019 06:45:50",
-                //     "verdict": "Successful",
-                //     "service_name": "orchestration-service-mg-lau1",
-                //     "node_type": "DRF",
-                //     "cluster_type": "secondary",
-                //     "cluster_name": "LAU1",
-                //     "server": "csvdf221",
-                //     "response": "{\"verdict\":\"Successful\",\"code\":0,\"serviceName\":\"orchestration-service-mg-lau1\",\"startdate\":\"22.05.2019 14:07:34\",\"server\":\"csvdf221\",\"nodetype\":\"DRF\",\"cluster\":\"secondary\",\"standardOutput\":null,\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"22.05.2019 14:01:45\",\"verificationTimestampAfter\":\"22.05.2019 14:07:30\",\"configuratorLog\":\"1 csvmg227 nb1[12503]: Stopped\\nMay 22 14:07:31 csvmg227 configurator: EXPORT [End of csv generation of ALL configuration files (csv)]\\nMay 22 14:07:33 csvmg227 configurator: EXPORT [Check config -> OK]\\nMay 22 14:07:33 csvmg227 configurator: EXPORT [Config exported locally]\\nMay 22 14:07:33 csvmg227 configurator: EXPORT [Export OK on TDRF1]\\nMay 22 14:07:33 csvmg227 configurator: EXPORT [End of csv generation]\\nMay 22 14:07:33 csvmg227 configurator: EXPORT [CHECK CONFIG and EXPORT TO FRONT SYSTEMS -> OK]\\nMay 22 14:07:33 csvmg227 configurator_drf[11829]: NIV1: main() commande: <./export.sh base bfr2501 TDB1 3307 N161214_K2R_tmp N161214_K2R /home/ultracomp/HALYSultracomp/own/system_halys.conf> executed\\nMay 22 14:07:33 csvmg227 configurator_drf[11829]: NIV0: [CAM PROCESS]: STOP EXPORTATION CONFIG : SUCCESS (8157 ms) !\\nMay 22 14:07:33 csvmg227 configurator_drf[11829]: NIV0: [CAM PROCESS]: END DRF PROCESSING FILE </opt/update/xmlfiles_drf/2019_05_22_14-06-29_DRF_FULL.xml> : SUCCESS (58503 ms) !\\n\"}"
-                // },
-                {
-                    "id": 74,
-                    "xml_id": "72",
-                    "orchestration_date": "22.05-2019 06:39:50",
-                    "verdict": "Successful",
+                    "id": 12,
+                    "xml_id": "12",
+                    "start_date": "2019-06-16T15:53:12.771+0000",
+                    "end_date": "2019-06-16T15:53:20.420+0000",
+                    "verdict": "Failed",
                     "service_name": "orchestration-service-mg-lau1-ss7f",
                     "node_type": "SS7F",
                     "cluster_type": "secondary",
-                    "cluster_name": "LAU1",
                     "server": "css7f601",
-                    "response": "{\"verdict\":\"Successful\",\"code\":0,\"serviceName\":\"orchestration-service-mg-lau1-ss7f\",\"startdate\":\"22.05.2019 14:08:15\",\"server\":\"css7f601\",\"nodetype\":\"SS7F\",\"cluster\":\"secondary\",\"standardOutput\":null,\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"22.05.2019 14:03:45\",\"verificationTimestampAfter\":\"22.05.2019 14:08:02\",\"configuratorLog\":\"sv generation of ALL configuration files (csv)]\\nMay 22 14:08:13 csvmg609 configurator: EXPORT [Check config -> OK]\\nMay 22 14:08:14 csvmg609 configurator: EXPORT [Config exported locally]\\nMay 22 14:08:14 csvmg609 configurator: EXPORT [Export OK on TRH3]\\nMay 22 14:08:14 csvmg609 configurator: EXPORT [Export OK on TRH4]\\nMay 22 14:08:14 csvmg609 configurator: EXPORT [End of csv generation]\\nMay 22 14:08:14 csvmg609 configurator: EXPORT [CHECK CONFIG and EXPORT TO FRONT SYSTEMS -> OK]\\nMay 22 14:08:14 csvmg609 configurator_ss7f[17732]: NIV1: main() commande: <./export.sh base bfr2501 COMMON-DB3DB4 3307 SS7F_111017_live_tmp SS7F_111017_live /home/ultracomp/HALYSultracomp/own/system_halys.conf> executed\\nMay 22 14:08:14 csvmg609 configurator_ss7f[17732]: NIV0: [CAM PROCESS]: STOP EXPORTATION CONFIG : SUCCESS (15789 ms) !\\nMay 22 14:08:14 csvmg609 configurator_ss7f[17732]: NIV0: [CAM PROCESS]: END SS7F PROCESSING FILE </opt/update/xmlfiles/2019_05_22_14-06-29_SS7F_FULL.xml> : SUCCESS (98194 ms) !\\n\"}"
+                    "response": "{\"verdict\":\"Failed\",\"code\":1,\"serviceName\":\"orchestration-service-mg-lau1-ss7f\",\"start_timestamp\":\"16.06.2019 15:53:13\",\"stop_timestamp\":\"16.06.2019 15:53:19\",\"server\":\"css7f601\",\"nodetype\":\"SS7F\",\"cluster\":\"secondary\",\"standardOutput\":null,\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"23.05.2019 06:43:24\",\"verificationTimestampAfter\":\"23.05.2019 06:43:24\",\"configuratorLog\":\"Jun 16 15:45:23 csvmg609 configurator_ss7f[27234]: NIV0: [CAM PROCESS]: START SS7F with user 'ultracomp' PROCESSING FILE </opt/update/xmlfiles/000009_SS7F_Full_20190616T154518.xml>: live_DB = SS7F_111017_live\\nJun 16 15:45:23 csvmg609 configurator_ss7f[27234]: NIV0: [CAM PROCESS]: PROCESSING WITH LAB CONFIG\\nJun 16 15:45:26 csvmg609 configurator: EXPORT [TEMPORARY DATABASE -> OK]\\nJun 16 15:45:26 csvmg609 configurator_ss7f[27234]: NIV1: main() commande: <./import.sh base bfr2501 COMMON-DB3DB4 3307 SS7F_111017_live SS7F_111017_live_tmp /home/ultracomp/HALYSultracomp/own/system_halys.conf> executed\\nJun 16 15:45:26 csvmg609 configurator_ss7f[27234]: NIV0: [CAM PROCESS]: DATABASE CLEAN: SUCCESS (ERR=0, 3347 ms) !\\nJun 16 15:45:26 csvmg609 configurator_ss7f[27234]: NIV0: [CAM PROCESS]: DATABASE INIT: SUCCESS (ERR=0, 8 ms) !\\nJun 16 15:45:26 csvmg609 configurator_ss7f[27234]: NIV0: [CAM PROCESS]: START IMPORTATION FILE </opt/update/xmlfiles/000009_SS7F_Full_20190616T154518.xml>\\nJun 16 15:45:26 csvmg609 configurator_ss7f[27234]: NIV0: [IMPORT CFG]: ERROR [cam-ss7f NOT found] !!!\\nJun 16 15:45:26 csvmg609 configurator_ss7f[27234]: NIV0: [CAM PROCESS]: STOP IMPORTATION FILE </opt/update/xmlfiles/000009_SS7F_Full_20190616T154518.xml>: 0 warnings & 1 errors (87 ms)\\nJun 16 15:53:14 csvmg609 configurator_ss7f[28212]: NIV0: [CAM PROCESS]: START SS7F with user 'ultracomp' PROCESSING FILE </opt/update/xmlfiles/000010_SS7F_Full_20190616T155311.xml>: live_DB = SS7F_111017_live\\nJun 16 15:53:14 csvmg609 configurator_ss7f[28212]: NIV0: [CAM PROCESS]: PROCESSING WITH LAB CONFIG\\nJun 16 15:53:18 csvmg609 configurator: EXPORT [TEMPORARY DATABASE -> OK]\\nJun 16 15:53:18 csvmg609 configurator_ss7f[28212]: NIV1: main() commande: <./import.sh base bfr2501 COMMON-DB3DB4 3307 SS7F_111017_live SS7F_111017_live_tmp /home/ultracomp/HALYSultracomp/own/system_halys.conf> executed\\nJun 16 15:53:18 csvmg609 configurator_ss7f[28212]: NIV0: [CAM PROCESS]: DATABASE CLEAN: SUCCESS (ERR=0, 3611 ms) !\\nJun 16 15:53:18 csvmg609 configurator_ss7f[28212]: NIV0: [CAM PROCESS]: DATABASE INIT: SUCCESS (ERR=0, 7 ms) !\\nJun 16 15:53:18 csvmg609 configurator_ss7f[28212]: NIV0: [CAM PROCESS]: START IMPORTATION FILE </opt/update/xmlfiles/000010_SS7F_Full_20190616T155311.xml>\\nJun 16 15:53:18 csvmg609 configurator_ss7f[28212]: NIV0: [IMPORT CFG]: ERROR [cam-ss7f NOT found] !!!\\nJun 16 15:53:18 csvmg609 configurator_ss7f[28212]: NIV0: [CAM PROCESS]: STOP IMPORTATION FILE </opt/update/xmlfiles/000010_SS7F_Full_20190616T155311.xml>: 0 warnings & 1 errors (86 ms)\\n\"}"
                 },
                 {
-                    "id": 75,
-                    "xml_id": "69",
-                    "orchestration_date": "22.05-2019 06:39:50",
-                    "verdict": "Successful",
-                    "service_name": "orchestration-service-mg-lau1",
-                    "node_type": "DSF",
-                    "cluster_type": "secondary",
-                    "cluster_name": "LAU1",
-                    "server": "csvsf223",
-                    "response": "{\"verdict\":\"Successful\",\"code\":0,\"serviceName\":\"orchestration-service-mg-lau1\",\"startdate\":\"22.05.2019 14:07:16\",\"server\":\"csvsf223\",\"nodetype\":\"DSF\",\"cluster\":\"secondary\",\"standardOutput\":\"0\\n\",\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"22.05.2019 14:01:32\",\"verificationTimestampAfter\":\"22.05.2019 14:07:13\",\"configuratorLog\":\" 22 14:07:14 csvmg227 nb1[12060]: Stopped\\nMay 22 14:07:14 csvmg227 configurator: EXPORT [End of csv generation of ALL configuration files (csv)]\\nMay 22 14:07:15 csvmg227 configurator: EXPORT [Check config -> OK]\\nMay 22 14:07:15 csvmg227 configurator: EXPORT [Config exported locally]\\nMay 22 14:07:15 csvmg227 configurator: EXPORT [Export OK on TDSF1]\\nMay 22 14:07:15 csvmg227 configurator: EXPORT [End of csv generation]\\nMay 22 14:07:15 csvmg227 configurator: EXPORT [CHECK CONFIG and EXPORT TO FRONT SYSTEMS -> OK]\\nMay 22 14:07:15 csvmg227 configurator_dsf[11837]: NIV1: main() commande: <./export.sh base bfr2501 TDB1 3307 N240418_DSF_tmp N240418_DSF /home/ultracomp/own/system_halys.conf.dsf> executed\\nMay 22 14:07:15 csvmg227 configurator_dsf[11837]: NIV0: [CAM PROCESS]: STOP EXPORTATION CONFIG : SUCCESS (5613 ms) !\\nMay 22 14:07:15 csvmg227 configurator_dsf[11837]: NIV0: [CAM PROCESS]: END DSF PROCESSING FILE </opt/update/xmlfiles_dsf/2019_05_22_14-06-29_DSF_FULL.xml> : SUCCESS (40697 ms) !\\n\"}"
-                },
-                {
-                    "id": 76,
-                    "xml_id": "71",
-                    "orchestration_date": "22.05-2019 06:39:50",
+                    "id": 10,
+                    "xml_id": "10",
+                    "start_date": "2019-06-16T15:53:12.770+0000",
+                    "end_date": "2019-06-16T15:54:20.718+0000",
                     "verdict": "Failed",
                     "service_name": "orchestration-service-mg-lau1",
-                    "node_type": "DNSF",
-                    "cluster_type": "secondary",
-                    "cluster_name": "LAU1",
-                    "server": "csvns229",
-                    "response": "{\"verdict\":\"Successful\",\"code\":0,\"serviceName\":\"orchestration-service-mg-lau1\",\"startdate\":\"22.05.2019 14:06:36\",\"server\":\"csvns229\",\"nodetype\":\"DNSF\",\"cluster\":\"secondary\",\"standardOutput\":\"Copying succeeded\\nCommand exexuted: ssh ultracomp@csvns229 /opt/dnsupdate/dnsupdate.pl -f -e /opt/dnsupdate/xmlfiles/2019_05_22_14-06-29_DNSF_FULL.xmlStarting dnsupdate.pl\\nCalling dnsupdate.pl succeeded\\nResult code is 0\",\"errorOutput\":\"Wide character in print at /opt/dnsupdate/dnsupdate.pm line 176.\\nWide character in print at /opt/dnsupdate/dnsupdate.pm line 206.\\n\",\"verificationFile\":\"/etc/named.d/include/named.conf.USAVZ\",\"verificationTimestampBefore\":\"22.05.2019 14:02:38\",\"verificationTimestampAfter\":\"22.05.2019 14:06:34\",\"configuratorLog\":null}"
-                },
-                {
-                    "id": 77,
-                    "xml_id": "70",
-                    "orchestration_date": "22.05-2019 06:39:50",
-                    "verdict": "Successful",
-                    "service_name": "orchestration-service-mg-bau1",
-                    "node_type": "DRF",
-                    "cluster_type": "primary",
-                    "cluster_name": "BAU1",
-                    "server": "csvdf220",
-                    "response": "{\"verdict\":\"Successful\",\"code\":0,\"serviceName\":\"orchestration-service-mg-bau1\",\"startdate\":\"22.05.2019 14:09:14\",\"server\":\"csvdf220\",\"nodetype\":\"DRF\",\"cluster\":\"primary\",\"standardOutput\":null,\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"22.05.2019 14:03:34\",\"verificationTimestampAfter\":\"22.05.2019 14:09:09\",\"configuratorLog\":\"1 csvmg226 nb1[24821]: Stopped\\nMay 22 14:09:11 csvmg226 configurator: EXPORT [End of csv generation of ALL configuration files (csv)]\\nMay 22 14:09:12 csvmg226 configurator: EXPORT [Check config -> OK]\\nMay 22 14:09:12 csvmg226 configurator: EXPORT [Config exported locally]\\nMay 22 14:09:13 csvmg226 configurator: EXPORT [Export OK on TDRF2]\\nMay 22 14:09:13 csvmg226 configurator: EXPORT [End of csv generation]\\nMay 22 14:09:13 csvmg226 configurator: EXPORT [CHECK CONFIG and EXPORT TO FRONT SYSTEMS -> OK]\\nMay 22 14:09:13 csvmg226 configurator_drf[24691]: NIV1: main() commande: <./export.sh base bfr2501 TDB2 3307 N161214_K2R_tmp N161214_K2R /home/ultracomp/HALYSultracomp/own/system_halys.conf> executed\\nMay 22 14:09:13 csvmg226 configurator_drf[24691]: NIV0: [CAM PROCESS]: STOP EXPORTATION CONFIG : SUCCESS (7971 ms) !\\nMay 22 14:09:13 csvmg226 configurator_drf[24691]: NIV0: [CAM PROCESS]: END DRF PROCESSING FILE </opt/update/xmlfiles_drf/2019_05_22_14-08-15_DRF_FULL.xml> : SUCCESS (53775 ms) !\\n\"}"
-                },
-                {
-                    "id": 78,
-                    "xml_id": "72",
-                    "orchestration_date": "22.05-2019 06:39:50",
-                    "verdict": "Successful",
-                    "service_name": "orchestration-service-mg-bau1-ss7f",
-                    "node_type": "SS7F",
-                    "cluster_type": "primary",
-                    "cluster_name": "BAU1",
-                    "server": "css7f600",
-                    "response": "{\"verdict\":\"Successful\",\"code\":0,\"serviceName\":\"orchestration-service-mg-bau1-ss7f\",\"startdate\":\"22.05.2019 14:09:38\",\"server\":\"css7f600\",\"nodetype\":\"SS7F\",\"cluster\":\"primary\",\"standardOutput\":null,\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"22.05.2019 14:03:45\",\"verificationTimestampAfter\":\"22.05.2019 14:09:25\",\"configuratorLog\":\"\"}"
-                },
-                {
-                    "id": 79,
-                    "xml_id": "69",
-                    "orchestration_date": "22.05-2019 06:39:50",
-                    "verdict": "Successful",
-                    "service_name": "orchestration-service-mg-bau1",
                     "node_type": "DSF",
-                    "cluster_type": "primary",
-                    "cluster_name": "BAU1",
-                    "server": "csvsf220",
-                    "response": "{\"verdict\":\"Successful\",\"code\":0,\"serviceName\":\"orchestration-service-mg-bau1\",\"startdate\":\"22.05.2019 14:08:17\",\"server\":\"csvsf220\",\"nodetype\":\"DSF\",\"cluster\":\"primary\",\"standardOutput\":\"65280\\n\",\"errorOutput\":null,\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"csvsf220: Name or service not known\",\"verificationTimestampAfter\":\"csvsf220\",\"configuratorLog\":\"5 csvmg226 nb1[24375]: Stopped\\nMay 22 14:03:35 csvmg226 configurator: EXPORT [End of csv generation of ALL configuration files (csv)]\\nMay 22 14:03:37 csvmg226 configurator: EXPORT [Check config -> OK]\\nMay 22 14:03:37 csvmg226 configurator: EXPORT [Config exported locally]\\nMay 22 14:03:37 csvmg226 configurator: EXPORT [Export OK on TDRF2]\\nMay 22 14:03:37 csvmg226 configurator: EXPORT [End of csv generation]\\nMay 22 14:03:37 csvmg226 configurator: EXPORT [CHECK CONFIG and EXPORT TO FRONT SYSTEMS -> OK]\\nMay 22 14:03:37 csvmg226 configurator_drf[24249]: NIV1: main() commande: <./export.sh base bfr2501 TDB2 3307 N161214_K2R_tmp N161214_K2R /home/ultracomp/HALYSultracomp/own/system_halys.conf> executed\\nMay 22 14:03:37 csvmg226 configurator_drf[24249]: NIV0: [CAM PROCESS]: STOP EXPORTATION CONFIG : SUCCESS (8806 ms) !\\nMay 22 14:03:37 csvmg226 configurator_drf[24249]: NIV0: [CAM PROCESS]: END DRF PROCESSING FILE </opt/update/xmlfiles_drf/2019_05_22_14-02-35_DRF_FULL.xml> : SUCCESS (58991 ms) !\\n\"}"
+                    "cluster_type": "secondary",
+                    "server": "csvsf223",
+                    "response": "{\"verdict\":\"Failed\",\"code\":254,\"serviceName\":\"orchestration-service-mg-lau1\",\"start_timestamp\":\"16.06.2019 15:54:12\",\"stop_timestamp\":\"16.06.2019 15:54:19\",\"server\":\"csvsf223\",\"nodetype\":\"DSF\",\"cluster\":\"secondary\",\"standardOutput\":null,\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"12.06.2019 13:04:49\",\"verificationTimestampAfter\":\"12.06.2019 13:04:49\",\"configuratorLog\":\" </opt/update/xmlfiles_drf/000010_DRF_Full_20190616T155310.xml>: live_DB = N161214_K2R\\nJun 16 15:54:14 csvmg227 configurator_drf[21342]: NIV0: [CAM PROCESS]: PROCESSING WITH LAB CONFIG\\nJun 16 15:54:18 csvmg227 configurator: EXPORT [TEMPORARY DATABASE -> OK]\\nJun 16 15:54:18 csvmg227 configurator_dsf[21337]: NIV1: main() commande: <./import.sh base bfr2501 TDB1 3307 N161214_K2R N161214_K2R_tmp /home/ultracomp/HALYSultracomp/own/system_halys.conf> executed\\nJun 16 15:54:18 csvmg227 configurator_dsf[21337]: NIV0: [CAM PROCESS]: DATABASE CLEAN: SUCCESS (ERR=0, 4124 ms) !\\nJun 16 15:54:18 csvmg227 configurator_dsf[21337]: NIV0: [SQL with error]: insert into OpName (RefOpName,Name,OP_Type,OP_Option,STAT_name,STAT_logo,RefClient,CodeOp) VALUES (1,'AMK2R',5,0,'AMK2R','','','')\\nJun 16 15:54:18 csvmg227 configurator_dsf[21337]: NIV0: [SQL error]: DBD::mysql::st execute failed: Duplicate entry 'AMK2R' for key 'Name' at /home/ultracomp/HALYSultracomp/asmpp/MIGRATION_K2R/MIGR_K2R_COMMON.pm line 1025.\\n\"}"
                 },
                 {
-                    "id": 80,
-                    "xml_id": "71",
-                    "orchestration_date": "22.05-2019 06:39:50",
+                    "id": 13,
+                    "xml_id": "11",
+                    "start_date": "2019-06-16T15:53:12.770+0000",
+                    "end_date": "2019-06-16T15:55:10.976+0000",
                     "verdict": "Successful",
-                    "service_name": "orchestration-service-mg-bau1",
-                    "node_type": "DNSF",
-                    "cluster_type": "primary",
-                    "cluster_name": "BAU1",
-                    "server": "csvns229",
-                    "response": "{\"verdict\":\"Successful\",\"code\":0,\"serviceName\":\"orchestration-service-mg-lau1\",\"startdate\":\"22.05.2019 14:08:19\",\"server\":\"csvns229\",\"nodetype\":\"DNSF\",\"cluster\":\"secondary\",\"standardOutput\":\"Copying succeeded\\nCommand exexuted: ssh ultracomp@csvns229 /opt/dnsupdate/dnsupdate.pl -f -e /opt/dnsupdate/xmlfiles/2019_05_22_14-08-15_DNSF_FULL.xmlStarting dnsupdate.pl\\nCalling dnsupdate.pl succeeded\\nResult code is 0\",\"errorOutput\":\"Wide character in print at /opt/dnsupdate/dnsupdate.pm line 176.\\nWide character in print at /opt/dnsupdate/dnsupdate.pm line 206.\\n\",\"verificationFile\":\"/etc/named.d/include/named.conf.USAVZ\",\"verificationTimestampBefore\":\"22.05.2019 14:06:34\",\"verificationTimestampAfter\":\"22.05.2019 14:08:18\",\"configuratorLog\":null}"
+                    "service_name": "orchestration-service-mg-lau1",
+                    "node_type": "DRF",
+                    "cluster_type": "secondary",
+                    "server": "csvdf221",
+                    "response": "{\"verdict\":\"Successful\",\"code\":0,\"serviceName\":\"orchestration-service-mg-lau1\",\"start_timestamp\":\"16.06.2019 15:54:13\",\"stop_timestamp\":\"16.06.2019 15:55:09\",\"server\":\"csvdf221\",\"nodetype\":\"DRF\",\"cluster\":\"secondary\",\"standardOutput\":null,\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"16.06.2019 15:46:35\",\"verificationTimestampAfter\":\"16.06.2019 15:55:04\",\"configuratorLog\":\"svmg227 nb1[21597]: Stopped\\nJun 16 15:55:06 csvmg227 configurator: EXPORT [End of csv generation of ALL configuration files (csv)]\\nJun 16 15:55:08 csvmg227 configurator: EXPORT [Check config -> OK]\\nJun 16 15:55:08 csvmg227 configurator: EXPORT [Config exported locally]\\nJun 16 15:55:08 csvmg227 configurator: EXPORT [Export OK on TDRF1]\\nJun 16 15:55:08 csvmg227 configurator: EXPORT [End of csv generation]\\nJun 16 15:55:08 csvmg227 configurator: EXPORT [CHECK CONFIG and EXPORT TO FRONT SYSTEMS -> OK]\\nJun 16 15:55:08 csvmg227 configurator_drf[21342]: NIV1: main() commande: <./export.sh base bfr2501 TDB1 3307 N161214_K2R_tmp N161214_K2R /home/ultracomp/HALYSultracomp/own/system_halys.conf> executed\\nJun 16 15:55:08 csvmg227 configurator_drf[21342]: NIV0: [CAM PROCESS]: STOP EXPORTATION CONFIG : SUCCESS (8647 ms) !\\nJun 16 15:55:08 csvmg227 configurator_drf[21342]: NIV0: [CAM PROCESS]: END DRF PROCESSING FILE </opt/update/xmlfiles_drf/000010_DRF_Full_20190616T155310.xml> : SUCCESS (54005 ms) !\\n\"}"
                 }
             ],
-            "tests": [
+            "tests": []
+        },
+        {
+            "id": 9,
+            "start_date": "2019-06-16T15:44:54.754+0000",
+            "end_date": "2019-06-16T15:44:54.000+0000",
+            "orchestration_type": "Full",
+            "verdict": "Failed",
+            "error": "Orchestration if the secondary nodes failed",
+            "nodes": [
                 {
-                    "id": 1,
-                    "test_date": "22.05-2019 06:39:50",
-                    "verdict": "Successful",
-                    "test_type": "PreOrchestration",
-                    "cluster_type": "secondary",
-                    "cluster_name": "LAU1",
-                    "server": "csvns229",
-                    "dns_results": "[{\"verdict\":\"Successful\",\"host\":\"csvns229\",\"request\":\"9B 5F 00 00 00 01 00 00 00 00 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 \",\"answer\":\"9B 5F 84 00 00 01 00 01 00 02 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 C0 0C 00 01 00 01 00 00 0E 10 00 04 C2 96 C7 5C C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 31 00 C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 32 00 \",\"error\":null,\"ipaddress\":\"194.150.199.92\",\"lookup\":\"internet.mnc096.mcc228.gprs.\",\"classname\":\"IN\"},{\"verdict\":\"Successful\",\"host\":\"csvns229\",\"request\":\"96 59 00 00 00 01 00 00 00 00 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 \",\"answer\":\"96 59 84 00 00 01 00 01 00 02 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 C0 0C 00 01 00 01 00 00 0E 10 00 04 C2 96 C7 5C C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 32 00 C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 31 00 \",\"error\":null,\"ipaddress\":\"194.150.199.92\",\"lookup\":\"internet.mnc096.mcc228.gprs.\",\"classname\":\"IN\"}]",
-                    "gtpecho_results": "[{\"verdict\":\"Successful\",\"host\":\"185.47.24.193\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"91.221.82.121\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"195.211.13.120\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"185.47.24.193\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"91.221.82.121\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"195.211.13.120\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null}]"
-                },
-                {
-                    "id": 2,
-                    "test_date": "22.05-2019 06:39:50",
+                    "id": 6,
+                    "xml_id": "6",
+                    "start_date": "2019-06-16T15:45:19.924+0000",
+                    "end_date": "2019-06-16T15:45:32.632+0000",
                     "verdict": "Failed",
-                    "test_type": "PostOrchestration",
+                    "service_name": "orchestration-service-mg-lau1",
+                    "node_type": "DSF",
                     "cluster_type": "secondary",
-                    "cluster_name": "LAU1",
-                    "server": "csvns229",
-                    "dns_results": "[{\"verdict\":\"Successful\",\"host\":\"csvns229\",\"request\":\"18 44 00 00 00 01 00 00 00 00 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 \",\"answer\":\"18 44 84 00 00 01 00 01 00 02 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 C0 0C 00 01 00 01 00 00 0E 10 00 04 C2 96 C7 5C C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 31 00 C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 32 00 \",\"error\":null,\"ipaddress\":\"194.150.199.92\",\"lookup\":\"internet.mnc096.mcc228.gprs.\",\"classname\":\"IN\"},{\"verdict\":\"Successful\",\"host\":\"csvns229\",\"request\":\"5B ED 00 00 00 01 00 00 00 00 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 \",\"answer\":\"5B ED 84 00 00 01 00 01 00 02 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 C0 0C 00 01 00 01 00 00 0E 10 00 04 C2 96 C7 5C C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 32 00 C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 31 00 \",\"error\":null,\"ipaddress\":\"194.150.199.92\",\"lookup\":\"internet.mnc096.mcc228.gprs.\",\"classname\":\"IN\"}]",
-                    "gtpecho_results": "[{\"verdict\":\"Successful\",\"host\":\"185.47.24.193\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"91.221.82.121\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"195.211.13.120\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"185.47.24.193\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"91.221.82.121\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"195.211.13.120\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null}]"
+                    "server": "csvsf223",
+                    "response": "{\"verdict\":\"Failed\",\"code\":0,\"serviceName\":\"orchestration-service-mg-lau1\",\"start_timestamp\":\"16.06.2019 15:45:20\",\"stop_timestamp\":\"16.06.2019 15:45:31\",\"server\":\"csvsf223\",\"nodetype\":\"DSF\",\"cluster\":\"secondary\",\"standardOutput\":null,\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"12.06.2019 13:04:49\",\"verificationTimestampAfter\":\"12.06.2019 13:04:49\",\"configuratorLog\":\"MANDATORY] [connection {log-level} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [co\\nJun 16 15:45:30 csvmg227 configurator_dsf[19617]: NIV0: [IMPORT CFG]: WARNING !!! ELEMENT imsi-groups->imsi-group NOT IMPLEMENTED !!!\\nJun 16 15:45:30 csvmg227 configurator_dsf[19617]: NIV0: [IMPORT CFG]: WARNING !!! ELEMENT imsi-groups->imsi-group NOT IMPLEMENTED !!!\\nJun 16 15:45:30 csvmg227 configurator_dsf[19617]: NIV0: [IMPORT CFG]: ALL imsi-groups LOADED (ERR=8259, TIME=136 ms)\\n\"}"
                 },
                 {
-                    "id": 3,
-                    "test_date": "22.05-2019 06:39:50",
-                    "verdict": "Successful",
-                    "test_type": "PreOrchestration",
-                    "cluster_type": "primary",
-                    "cluster_name": "BAU1",
-                    "server": "csvns228",
-                    "dns_results": "[{\"verdict\":\"Successful\",\"host\":\"csvns229\",\"request\":\"2B C0 00 00 00 01 00 00 00 00 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 \",\"answer\":\"2B C0 84 00 00 01 00 01 00 02 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 C0 0C 00 01 00 01 00 00 0E 10 00 04 C2 96 C7 5C C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 31 00 C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 32 00 \",\"error\":null,\"ipaddress\":\"194.150.199.92\",\"lookup\":\"internet.mnc096.mcc228.gprs.\",\"classname\":\"IN\"},{\"verdict\":\"Successful\",\"host\":\"csvns229\",\"request\":\"3F 2F 00 00 00 01 00 00 00 00 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 \",\"answer\":\"3F 2F 84 00 00 01 00 01 00 02 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 C0 0C 00 01 00 01 00 00 0E 10 00 04 C2 96 C7 5C C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 32 00 C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 31 00 \",\"error\":null,\"ipaddress\":\"194.150.199.92\",\"lookup\":\"internet.mnc096.mcc228.gprs.\",\"classname\":\"IN\"}]",
-                    "gtpecho_results": "[{\"verdict\":\"Successful\",\"host\":\"185.47.24.193\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"91.221.82.121\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"195.211.13.120\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"185.47.24.193\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"91.221.82.121\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"195.211.13.120\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null}]"
+                    "id": 7,
+                    "xml_id": "9",
+                    "start_date": "2019-06-16T15:45:19.925+0000",
+                    "end_date": "2019-06-16T15:45:24.125+0000",
+                    "verdict": "Failed",
+                    "service_name": "orchestration-service-mg-lau1",
+                    "node_type": "DNSF",
+                    "cluster_type": "secondary",
+                    "server": "csvns229",
+                    "response": "{\"verdict\":\"Failed\",\"code\":-1,\"serviceName\":\"orchestration-service-mg-lau1\",\"start_timestamp\":\"16.06.2019 15:45:21\",\"stop_timestamp\":\"16.06.2019 15:45:22\",\"server\":\"csvns229\",\"nodetype\":\"DNSF\",\"cluster\":\"secondary\",\"standardOutput\":null,\"errorOutput\":\"Exception: java.lang.NullPointerException\",\"verificationFile\":\"/etc/named.d/include/named.conf.USAVZ\",\"verificationTimestampBefore\":null,\"verificationTimestampAfter\":null,\"configuratorLog\":null}"
                 },
+                {
+                    "id": 8,
+                    "xml_id": "8",
+                    "start_date": "2019-06-16T15:45:19.925+0000",
+                    "end_date": "2019-06-16T15:45:28.668+0000",
+                    "verdict": "Failed",
+                    "service_name": "orchestration-service-mg-lau1-ss7f",
+                    "node_type": "SS7F",
+                    "cluster_type": "secondary",
+                    "server": "css7f601",
+                    "response": "{\"verdict\":\"Failed\",\"code\":1,\"serviceName\":\"orchestration-service-mg-lau1-ss7f\",\"start_timestamp\":\"16.06.2019 15:45:21\",\"stop_timestamp\":\"16.06.2019 15:45:27\",\"server\":\"css7f601\",\"nodetype\":\"SS7F\",\"cluster\":\"secondary\",\"standardOutput\":null,\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"23.05.2019 06:43:24\",\"verificationTimestampAfter\":\"23.05.2019 06:43:24\",\"configuratorLog\":\"Jun 16 15:45:23 csvmg609 configurator_ss7f[27234]: NIV0: [CAM PROCESS]: START SS7F with user 'ultracomp' PROCESSING FILE </opt/update/xmlfiles/000009_SS7F_Full_20190616T154518.xml>: live_DB = SS7F_111017_live\\nJun 16 15:45:23 csvmg609 configurator_ss7f[27234]: NIV0: [CAM PROCESS]: PROCESSING WITH LAB CONFIG\\nJun 16 15:45:26 csvmg609 configurator: EXPORT [TEMPORARY DATABASE -> OK]\\nJun 16 15:45:26 csvmg609 configurator_ss7f[27234]: NIV1: main() commande: <./import.sh base bfr2501 COMMON-DB3DB4 3307 SS7F_111017_live SS7F_111017_live_tmp /home/ultracomp/HALYSultracomp/own/system_halys.conf> executed\\nJun 16 15:45:26 csvmg609 configurator_ss7f[27234]: NIV0: [CAM PROCESS]: DATABASE CLEAN: SUCCESS (ERR=0, 3347 ms) !\\nJun 16 15:45:26 csvmg609 configurator_ss7f[27234]: NIV0: [CAM PROCESS]: DATABASE INIT: SUCCESS (ERR=0, 8 ms) !\\nJun 16 15:45:26 csvmg609 configurator_ss7f[27234]: NIV0: [CAM PROCESS]: START IMPORTATION FILE </opt/update/xmlfiles/000009_SS7F_Full_20190616T154518.xml>\\nJun 16 15:45:26 csvmg609 configurator_ss7f[27234]: NIV0: [IMPORT CFG]: ERROR [cam-ss7f NOT found] !!!\\nJun 16 15:45:26 csvmg609 configurator_ss7f[27234]: NIV0: [CAM PROCESS]: STOP IMPORTATION FILE </opt/update/xmlfiles/000009_SS7F_Full_20190616T154518.xml>: 0 warnings & 1 errors (87 ms)\\n\"}"
+                },
+                {
+                    "id": 9,
+                    "xml_id": "7",
+                    "start_date": "2019-06-16T15:45:19.925+0000",
+                    "end_date": "2019-06-16T15:46:41.189+0000",
+                    "verdict": "Successful",
+                    "service_name": "orchestration-service-mg-lau1",
+                    "node_type": "DRF",
+                    "cluster_type": "secondary",
+                    "server": "csvdf221",
+                    "response": "{\"verdict\":\"Successful\",\"code\":0,\"serviceName\":\"orchestration-service-mg-lau1\",\"start_timestamp\":\"16.06.2019 15:45:42\",\"stop_timestamp\":\"16.06.2019 15:46:39\",\"server\":\"csvdf221\",\"nodetype\":\"DRF\",\"cluster\":\"secondary\",\"standardOutput\":null,\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"10.06.2019 11:52:04\",\"verificationTimestampAfter\":\"16.06.2019 15:46:35\",\"configuratorLog\":\"svmg227 nb1[19954]: Stopped\\nJun 16 15:46:36 csvmg227 configurator: EXPORT [End of csv generation of ALL configuration files (csv)]\\nJun 16 15:46:38 csvmg227 configurator: EXPORT [Check config -> OK]\\nJun 16 15:46:38 csvmg227 configurator: EXPORT [Config exported locally]\\nJun 16 15:46:38 csvmg227 configurator: EXPORT [Export OK on TDRF1]\\nJun 16 15:46:38 csvmg227 configurator: EXPORT [End of csv generation]\\nJun 16 15:46:38 csvmg227 configurator: EXPORT [CHECK CONFIG and EXPORT TO FRONT SYSTEMS -> OK]\\nJun 16 15:46:38 csvmg227 configurator_drf[19703]: NIV1: main() commande: <./export.sh base bfr2501 TDB1 3307 N161214_K2R_tmp N161214_K2R /home/ultracomp/HALYSultracomp/own/system_halys.conf> executed\\nJun 16 15:46:38 csvmg227 configurator_drf[19703]: NIV0: [CAM PROCESS]: STOP EXPORTATION CONFIG : SUCCESS (8736 ms) !\\nJun 16 15:46:38 csvmg227 configurator_drf[19703]: NIV0: [CAM PROCESS]: END DRF PROCESSING FILE </opt/update/xmlfiles_drf/000009_DRF_Full_20190616T154518.xml> : SUCCESS (54955 ms) !\\n\"}"
+                }
+            ],
+            "tests": []
+        },
+        {
+            "id": 8,
+            "start_date": "2019-06-16T15:41:31.148+0000",
+            "end_date": "2019-06-16T15:41:31.000+0000",
+            "orchestration_type": "Full",
+            "verdict": "Failed",
+            "error": "com.comfone.cam.orchestration.exceptions.OrchestrationExceptionInternalError:  DRF schema validation failed.s4s-elt-schema-ns: The namespace of element 'schema' must be from the schema namespace, 'http://www.w3.org/2001/XMLSchema'.",
+            "nodes": [],
+            "tests": []
+        },
+        {
+            "id": 6,
+            "start_date": "2019-06-16T15:23:52.982+0000",
+            "end_date": "2019-06-16T15:23:52.000+0000",
+            "orchestration_type": "Full",
+            "verdict": "Failed",
+            "error": "Initial test prior orchestration failed",
+            "nodes": [],
+            "tests": []
+        },
+        {
+            "id": 5,
+            "start_date": "2019-06-13T12:56:35.227+0000",
+            "end_date": "2019-06-13T12:56:35.000+0000",
+            "orchestration_type": "Partial",
+            "verdict": "Failed",
+            "error": "At least one DSF node failed orchestration",
+            "nodes": [
+                {
+                    "id": 5,
+                    "xml_id": "5",
+                    "start_date": "2019-06-13T12:56:53.745+0000",
+                    "end_date": "2019-06-13T12:57:25.304+0000",
+                    "verdict": "Failed",
+                    "service_name": "orchestration-service-mg-lau1",
+                    "node_type": "DSF",
+                    "cluster_type": "secondary",
+                    "server": "csvsf223",
+                    "response": "{\"verdict\":\"Failed\",\"code\":0,\"serviceName\":\"orchestration-service-mg-lau1\",\"start_timestamp\":\"13.06.2019 12:57:14\",\"stop_timestamp\":\"13.06.2019 12:57:25\",\"server\":\"csvsf223\",\"nodetype\":\"DSF\",\"cluster\":\"secondary\",\"standardOutput\":null,\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"12.06.2019 13:04:49\",\"verificationTimestampAfter\":\"12.06.2019 13:04:49\",\"configuratorLog\":\"DATORY] [connection {vpmn-routing} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [conne\\nJun 13 12:57:23 csvmg227 configurator_dsf[25261]: NIV0: [IMPORT CFG]: WARNING !!! ELEMENT imsi-groups->imsi-group NOT IMPLEMENTED !!!\\nJun 13 12:57:23 csvmg227 configurator_dsf[25261]: NIV0: [IMPORT CFG]: WARNING !!! ELEMENT imsi-groups->imsi-group NOT IMPLEMENTED !!!\\nJun 13 12:57:23 csvmg227 configurator_dsf[25261]: NIV0: [IMPORT CFG]: ALL imsi-groups LOADED (ERR=8247, TIME=134 ms)\\n\"}"
+                }
+            ],
+            "tests": []
+        },
+        {
+            "id": 4,
+            "start_date": "2019-06-13T12:55:02.302+0000",
+            "end_date": "2019-06-13T12:55:02.000+0000",
+            "orchestration_type": "Partial",
+            "verdict": "Failed",
+            "error": "At least one DSF node failed orchestration",
+            "nodes": [
                 {
                     "id": 4,
-                    "test_date": "22.05-2019 06:39:50",
-                    "verdict": "Successful",
-                    "test_type": "PostOrchestration",
+                    "xml_id": "4",
+                    "start_date": "2019-06-13T12:55:20.849+0000",
+                    "end_date": "2019-06-13T12:55:34.767+0000",
+                    "verdict": "Failed",
+                    "service_name": "orchestration-service-mg-bau1",
+                    "node_type": "DSF",
                     "cluster_type": "primary",
-                    "cluster_name": "BAU1",
-                    "server": "csvns228",
-                    "dns_results": "[{\"verdict\":\"Successful\",\"host\":\"csvns229\",\"request\":\"2B C0 00 00 00 01 00 00 00 00 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 \",\"answer\":\"2B C0 84 00 00 01 00 01 00 02 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 C0 0C 00 01 00 01 00 00 0E 10 00 04 C2 96 C7 5C C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 31 00 C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 32 00 \",\"error\":null,\"ipaddress\":\"194.150.199.92\",\"lookup\":\"internet.mnc096.mcc228.gprs.\",\"classname\":\"IN\"},{\"verdict\":\"Successful\",\"host\":\"csvns229\",\"request\":\"3F 2F 00 00 00 01 00 00 00 00 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 \",\"answer\":\"3F 2F 84 00 00 01 00 01 00 02 00 00 08 69 6E 74 65 72 6E 65 74 06 6D 6E 63 30 39 36 06 6D 63 63 32 32 38 04 67 70 72 73 00 00 01 00 01 C0 0C 00 01 00 01 00 00 0E 10 00 04 C2 96 C7 5C C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 32 00 C0 15 00 02 00 01 00 00 0E 10 00 10 03 31 39 34 03 31 35 30 03 31 39 39 02 31 31 00 \",\"error\":null,\"ipaddress\":\"194.150.199.92\",\"lookup\":\"internet.mnc096.mcc228.gprs.\",\"classname\":\"IN\"}]",
-                    "gtpecho_results": "[{\"verdict\":\"Successful\",\"host\":\"185.47.24.193\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"91.221.82.121\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"195.211.13.120\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"185.47.24.193\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"91.221.82.121\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null},{\"verdict\":\"Successful\",\"host\":\"195.211.13.120\",\"request\":\"32 01 00 04 00 00 00 00 00 01 00 00 \",\"answer\":\"32 02 00 06 00 00 00 00 00 01 00 00 0E 84 \",\"error\":null}]"
+                    "server": "csvsf222",
+                    "response": "{\"verdict\":\"Failed\",\"code\":0,\"serviceName\":\"orchestration-service-mg-bau1\",\"start_timestamp\":\"13.06.2019 12:55:22\",\"stop_timestamp\":\"13.06.2019 12:55:34\",\"server\":\"csvsf222\",\"nodetype\":\"DSF\",\"cluster\":\"primary\",\"standardOutput\":null,\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"11.04.2019 13:30:46\",\"verificationTimestampAfter\":\"11.04.2019 13:30:46\",\"configuratorLog\":\"DATORY] [connection {hpmn-routing} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [conne\\nJun 13 12:55:33 csvmg226 configurator_dsf[16399]: NIV0: [IMPORT CFG]: WARNING !!! ELEMENT imsi-groups->imsi-group NOT IMPLEMENTED !!!\\nJun 13 12:55:33 csvmg226 configurator_dsf[16399]: NIV0: [IMPORT CFG]: WARNING !!! ELEMENT imsi-groups->imsi-group NOT IMPLEMENTED !!!\\nJun 13 12:55:33 csvmg226 configurator_dsf[16399]: NIV0: [IMPORT CFG]: ALL imsi-groups LOADED (ERR=8247, TIME=141 ms)\\n\"}"
                 }
-            ]
+            ],
+            "tests": []
+        },
+        {
+            "id": 3,
+            "start_date": "2019-06-13T12:51:38.648+0000",
+            "end_date": "2019-06-13T12:51:38.000+0000",
+            "orchestration_type": "Partial",
+            "verdict": "Failed",
+            "error": "At least one DSF node failed orchestration",
+            "nodes": [
+                {
+                    "id": 3,
+                    "xml_id": "3",
+                    "start_date": "2019-06-13T12:51:57.235+0000",
+                    "end_date": "2019-06-13T12:52:09.636+0000",
+                    "verdict": "Failed",
+                    "service_name": "orchestration-service-mg-bau1",
+                    "node_type": "DSF",
+                    "cluster_type": "primary",
+                    "server": "csvsf222",
+                    "response": "{\"verdict\":\"Failed\",\"code\":0,\"serviceName\":\"orchestration-service-mg-bau1\",\"start_timestamp\":\"13.06.2019 12:51:57\",\"stop_timestamp\":\"13.06.2019 12:52:09\",\"server\":\"csvsf222\",\"nodetype\":\"DSF\",\"cluster\":\"primary\",\"standardOutput\":null,\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"11.04.2019 13:30:46\",\"verificationTimestampAfter\":\"11.04.2019 13:30:46\",\"configuratorLog\":\"MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [co\\nJun 13 12:52:08 csvmg226 configurator_dsf[16375]: NIV0: [IMPORT CFG]: WARNING !!! ELEMENT imsi-groups->imsi-group NOT IMPLEMENTED !!!\\nJun 13 12:52:08 csvmg226 configurator_dsf[16375]: NIV0: [IMPORT CFG]: WARNING !!! ELEMENT imsi-groups->imsi-group NOT IMPLEMENTED !!!\\nJun 13 12:52:08 csvmg226 configurator_dsf[16375]: NIV0: [IMPORT CFG]: ALL imsi-groups LOADED (ERR=8247, TIME=135 ms)\\n\"}"
+                }
+            ],
+            "tests": []
+        },
+        {
+            "id": 2,
+            "start_date": "2019-06-13T12:45:26.969+0000",
+            "end_date": "2019-06-13T12:45:26.000+0000",
+            "orchestration_type": "Partial",
+            "verdict": "Failed",
+            "error": "At least one DSF node failed orchestration",
+            "nodes": [
+                {
+                    "id": 2,
+                    "xml_id": "2",
+                    "start_date": "2019-06-13T12:45:43.068+0000",
+                    "end_date": "2019-06-13T12:45:54.897+0000",
+                    "verdict": "Failed",
+                    "service_name": "orchestration-service-mg-bau1",
+                    "node_type": "DSF",
+                    "cluster_type": "primary",
+                    "server": "csvsf222",
+                    "response": "{\"verdict\":\"Failed\",\"code\":0,\"serviceName\":\"orchestration-service-mg-bau1\",\"start_timestamp\":\"13.06.2019 12:45:43\",\"stop_timestamp\":\"13.06.2019 12:45:54\",\"server\":\"csvsf222\",\"nodetype\":\"DSF\",\"cluster\":\"primary\",\"standardOutput\":null,\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"11.04.2019 13:30:46\",\"verificationTimestampAfter\":\"11.04.2019 13:30:46\",\"configuratorLog\":\"MANDATORY] [connection {log-level} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [co\\nJun 13 12:45:53 csvmg226 configurator_dsf[16331]: NIV0: [IMPORT CFG]: WARNING !!! ELEMENT imsi-groups->imsi-group NOT IMPLEMENTED !!!\\nJun 13 12:45:53 csvmg226 configurator_dsf[16331]: NIV0: [IMPORT CFG]: WARNING !!! ELEMENT imsi-groups->imsi-group NOT IMPLEMENTED !!!\\nJun 13 12:45:53 csvmg226 configurator_dsf[16331]: NIV0: [IMPORT CFG]: ALL imsi-groups LOADED (ERR=8247, TIME=119 ms)\\n\"}"
+                }
+            ],
+            "tests": []
+        },
+        {
+            "id": 1,
+            "start_date": "2019-06-13T12:37:38.002+0000",
+            "end_date": "2019-06-13T12:37:38.000+0000",
+            "orchestration_type": "Partial",
+            "verdict": "Failed",
+            "error": "At least one DSF node failed orchestration",
+            "nodes": [
+                {
+                    "id": 1,
+                    "xml_id": "1",
+                    "start_date": "2019-06-13T12:37:55.298+0000",
+                    "end_date": "2019-06-13T12:38:08.134+0000",
+                    "verdict": "Failed",
+                    "service_name": "orchestration-service-mg-bau1",
+                    "node_type": "DSF",
+                    "cluster_type": "primary",
+                    "server": "csvsf222",
+                    "response": "{\"verdict\":\"Failed\",\"code\":0,\"serviceName\":\"orchestration-service-mg-bau1\",\"start_timestamp\":\"13.06.2019 12:37:55\",\"stop_timestamp\":\"13.06.2019 12:38:08\",\"server\":\"csvsf222\",\"nodetype\":\"DSF\",\"cluster\":\"primary\",\"standardOutput\":null,\"errorOutput\":\"Warning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\nWarning: Using a password on the command line interface can be insecure.\\n\",\"verificationFile\":\"/home/ultracomp/etc/ListeBlanche.csv\",\"verificationTimestampBefore\":\"11.04.2019 13:30:46\",\"verificationTimestampAfter\":\"11.04.2019 13:30:46\",\"configuratorLog\":\"MANDATORY] [connection {log-level} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [connection {log-level} is MANDATORY] [connection {vpmn-routing} is MANDATORY] [connection {hpmn-routing} is MANDATORY] [co\\nJun 13 12:38:06 csvmg226 configurator_dsf[16275]: NIV0: [IMPORT CFG]: WARNING !!! ELEMENT imsi-groups->imsi-group NOT IMPLEMENTED !!!\\nJun 13 12:38:06 csvmg226 configurator_dsf[16275]: NIV0: [IMPORT CFG]: WARNING !!! ELEMENT imsi-groups->imsi-group NOT IMPLEMENTED !!!\\nJun 13 12:38:06 csvmg226 configurator_dsf[16275]: NIV0: [IMPORT CFG]: ALL imsi-groups LOADED (ERR=8247, TIME=119 ms)\\n\"}"
+                }
+            ],
+            "tests": []
         }
     ]
+
 );
-
-
 
 
 const initialState = {
     startDate: new Date(),
     endDate: new Date(),
     orchestrationList: initialList,
-    serverList: [{label: "orchestration-service-mg-lau1", value: "orchestration-service-mg-lau1"}, {label: "orchestration-service-mg-bau1", value: "orchestration-service-mg-bau1"}, {label: "orchestration-service-mg-wau1", value: "orchestration-service-mg-wau1"}],
-    selectedServerList: [],
-    selectedOrchestrationType: "FULL",
-    username: "Fredd",
-    password: "dddd",
+    serverList: ["orchestration-service-mg-lau1", "orchestration-service-mg-bau1", "orchestration-service-mg-wau1"],
+    selectedServerList: ["orchestration-service-mg-wau1"],
     error: null
 };
 
@@ -354,28 +289,6 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: action.value
-            }
-        case 'UPDATE_SELECTED_SERVER_LIST':
-            return {
-                ...state,
-                selectedServerList: action.value
-            }
-        case 'UPDATE_SELECTED_ORCHESTRATION_TYPE':
-
-            return {
-                ...state,
-                selectedOrchestrationType: action.value
-            }
-        case 'UPDATE_USERNAME':
-            return {
-                ...state,
-                username: action.value
-            }
-        case 'UPDATE_PASSWORD':
-
-            return {
-                ...state,
-                password: action.value
             }
         default:
             return state;
