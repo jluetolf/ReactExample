@@ -2,7 +2,8 @@ const initialList =  (
     [
         {
             "id": 51,
-            "orchestration_date": "23.05-2019 06:39:50",
+            "start_timestamp": "23.05-2019 06:39:50",
+            "stop_timestamp": "23.05-2019 06:45:50",
             "verdict": "Successful",
             "orchestrationType": "Full",
             "orchestration_user": "USR_JOLUET",
@@ -11,7 +12,8 @@ const initialList =  (
                 // {
                 //     "id": 81,
                 //     "xml_id": "74",
-                //     "orchestration_date": "23.05-2019 06:39:50",
+                //     "start_timestamp": "23.05-2019 06:39:50",
+                //     "stop_timestamp": "23.05-2019 06:45:50",
                 //     "verdict": "Successful",
                 //     "service_name": "orchestration-service-mg-lau1",
                 //     "node_type": "DRF",
@@ -23,7 +25,8 @@ const initialList =  (
                 // {
                 //     "id": 82,
                 //     "xml_id": "76",
-                //     "orchestration_date": "23.05-2019 06:39:50",
+                //     "start_timestamp": "23.05-2019 06:39:50",
+                //     "stop_timestamp": "23.05-2019 06:45:50",
                 //     "verdict": "Successful",
                 //     "service_name": "orchestration-service-mg-lau1-ss7f",
                 //     "node_type": "SS7F",
@@ -35,7 +38,8 @@ const initialList =  (
                 {
                     "id": 83,
                     "xml_id": "69",
-                    "orchestration_date": "23.05-2019 06:39:50",
+                    "start_timestamp": "23.05-2019 06:39:50",
+                    "stop_timestamp": "23.05-2019 06:45:50",
                     "verdict": "Successful",
                     "service_name": "orchestration-service-mg-lau1",
                     "node_type": "DSF",
@@ -47,7 +51,8 @@ const initialList =  (
                 {
                     "id": 84,
                     "xml_id": "75",
-                    "orchestration_date": "23.05-2019 06:39:50",
+                    "start_timestamp": "23.05-2019 06:39:50",
+                    "stop_timestamp": "23.05-2019 06:45:50",
                     "verdict": "Successful",
                     "service_name": "orchestration-service-mg-lau1",
                     "node_type": "DNSF",
@@ -59,7 +64,8 @@ const initialList =  (
                 // {
                 //     "id": 85,
                 //     "xml_id": "74",
-                //     "orchestration_date": "23.05-2019 06:39:50",
+                //     "start_timestamp": "23.05-2019 06:39:50",
+                //     "stop_timestamp": "23.05-2019 06:45:50",
                 //     "verdict": "Successful",
                 //     "service_name": "orchestration-service-mg-bau1",
                 //     "node_type": "DRF",
@@ -71,7 +77,8 @@ const initialList =  (
                 // {
                 //     "id": 86,
                 //     "xml_id": "76",
-                //     "orchestration_date": "23.05-2019 06:39:50",
+                //     "start_timestamp": "23.05-2019 06:39:50",
+                //     "stop_timestamp": "23.05-2019 06:45:50",
                 //     "verdict": "Successful",
                 //     "service_name": "orchestration-service-mg-bau1-ss7f",
                 //     "node_type": "SS7F",
@@ -83,7 +90,8 @@ const initialList =  (
                 {
                     "id": 87,
                     "xml_id": "73",
-                    "orchestration_date": "23.05-2019 06:39:50",
+                    "start_timestamp": "23.05-2019 06:39:50",
+                    "stop_timestamp": "23.05-2019 06:45:50",
                     "verdict": "Successful",
                     "service_name": "orchestration-service-mg-bau1",
                     "node_type": "DSF",
@@ -95,7 +103,8 @@ const initialList =  (
                 {
                     "id": 88,
                     "xml_id": "75",
-                    "orchestration_date": "23.05-2019 06:39:50",
+                    "start_timestamp": "23.05-2019 06:39:50",
+                    "stop_timestamp": "23.05-2019 06:45:50",
                     "verdict": "Successful",
                     "service_name": "orchestration-service-mg-lau1",
                     "node_type": "DNSF",
@@ -163,7 +172,8 @@ const initialList =  (
                 // {
                 //     "id": 73,
                 //     "xml_id": "70",
-                //     "orchestration_date": "22.05-2019 06:39:50",
+                //     "start_timestamp": "23.05-2019 06:39:50",
+                //     "stop_timestamp": "23.05-2019 06:45:50",
                 //     "verdict": "Successful",
                 //     "service_name": "orchestration-service-mg-lau1",
                 //     "node_type": "DRF",
@@ -314,8 +324,11 @@ const initialState = {
     startDate: new Date(),
     endDate: new Date(),
     orchestrationList: initialList,
-    serverList: ["orchestration-service-mg-lau1", "orchestration-service-mg-bau1", "orchestration-service-mg-wau1"],
-    selectedServerList: ["orchestration-service-mg-wau1"],
+    serverList: [{label: "orchestration-service-mg-lau1", value: "orchestration-service-mg-lau1"}, {label: "orchestration-service-mg-bau1", value: "orchestration-service-mg-bau1"}, {label: "orchestration-service-mg-wau1", value: "orchestration-service-mg-wau1"}],
+    selectedServerList: [],
+    selectedOrchestrationType: "FULL",
+    username: "Fredd",
+    password: "dddd",
     error: null
 };
 
@@ -341,6 +354,28 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: action.value
+            }
+        case 'UPDATE_SELECTED_SERVER_LIST':
+            return {
+                ...state,
+                selectedServerList: action.value
+            }
+        case 'UPDATE_SELECTED_ORCHESTRATION_TYPE':
+
+            return {
+                ...state,
+                selectedOrchestrationType: action.value
+            }
+        case 'UPDATE_USERNAME':
+            return {
+                ...state,
+                username: action.value
+            }
+        case 'UPDATE_PASSWORD':
+
+            return {
+                ...state,
+                password: action.value
             }
         default:
             return state;
