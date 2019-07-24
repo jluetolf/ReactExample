@@ -3,10 +3,12 @@ import './Credentials.css';
 
 import {Link} from 'react-router-dom';
 import {connect} from "react-redux";
-import Select from 'react-select';
+import Select from 'react-dropdown-select';
 import 'jquery/dist/jquery.min';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min';
+
+
+
+
 
 
 class Credentials extends Component {
@@ -31,10 +33,13 @@ class Credentials extends Component {
 
     render() {
 
-        var self = this,
-            options = this.props.serverList.map(function (server) {
+        const serverOptions = this.props.serverList.map(function (server) {
                 return {label: server, value: server}
             });
+
+        const orchestrationTypeOptions = this.props.orchestrationTypeList.map(function (server) {
+            return {label: server, value: server}
+        });
 
 
         const FULL = this.props.selectedOrchestrationType == "FULL" ? "active" : null;
@@ -42,6 +47,8 @@ class Credentials extends Component {
         const DSF = this.props.selectedOrchestrationType == "DSF" ? "active" : null;
         const SS7F = this.props.selectedOrchestrationType == "SS7F" ? "active" : null;
         const DNSF = this.props.selectedOrchestrationType == "DNSF" ? "active" : null;
+
+        const hallo = 'hallo';
 
         return (
             <div className="credentials">
@@ -61,16 +68,27 @@ class Credentials extends Component {
                             <Select
                                 value={this.props.selectedServerList}
                                 name="server-selection"
-                                options={this.props.serverList}
-                                isMulti="true"
+                                labelField="label"
+                                options={serverOptions}
+                                multi={false}
+                                searchable={false}
                                 onChange={this.props.onUpdatedSelectedServerList}
                                 placeholder="All servers are selected"
-
                             />
                         </div>
                         <div className="radios">
                             <div className="radiosLabel">Orchestration Type</div>
-                            <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                            <Select
+                                value={this.props.selectedOrchestrationType}
+                                name="server-selection"
+                                options={orchestrationTypeOptions}
+                                isMulti="false"
+                                searchable="false"
+                                onChange={this.props.onUpdatedOrchestrationType}
+                                placeholder="All servers are selected"
+
+                            />
+                           {/* <div className="btn-group btn-group-toggle" data-toggle="buttons">
                                 <label className={"btn btn-secondary " + FULL}
                                        onClick={() => this.props.onUpdatedOrchestrationType("FULL")}>
                                     <input type="radio" name="options" id="FULL" autoComplete="off"/> FULL
@@ -91,7 +109,7 @@ class Credentials extends Component {
                                        onClick={() => this.props.onUpdatedOrchestrationType("DNSF")}>
                                     <input type="radio" name="options" id="DNSF" autoComplete="off" /> DNSF
                                 </label>
-                            </div>
+                            </div>*/}
                         </div>
                         <div className="okButton">
                             <button type="button" onClick={this.onOkButtonHandler} className="btn btn-outline-dark">OK
@@ -112,6 +130,7 @@ class Credentials extends Component {
 const mapStateToProps = state => {
     return {
         serverList: state.serverList,
+        orchestrationTypeList: state.orchestrationTypeList,
         selectedServerList: state.selectedServerList,
         selectedOrchestrationType: state.selectedOrchestrationType,
         username: state.username,

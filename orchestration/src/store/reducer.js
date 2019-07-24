@@ -263,7 +263,9 @@ const initialState = {
     endDate: new Date(),
     orchestrationList: initialList,
     serverList: ["orchestration-service-mg-lau1", "orchestration-service-mg-bau1", "orchestration-service-mg-wau1"],
-    selectedServerList: ["orchestration-service-mg-wau1"],
+    orchestrationTypeList: ["FULL", "DRF", "SS7f", "DSF", "DNSF"],
+    selectedServerList: null,
+    selectedOrchestrationType: null,
     error: null
 };
 
@@ -289,6 +291,17 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: action.value
+            }
+        case 'UPDATE_SELECTED_SERVER_LIST':
+            return {
+                ...state,
+                selectedServerList: action.value
+            }
+
+        case 'UPDATE_SELECTED_ORCHESTRATION_TYPE':
+            return {
+                ...state,
+                selectedOrchestrationType: action.value
             }
         default:
             return state;
