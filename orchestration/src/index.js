@@ -9,9 +9,12 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 
+import intitialize from './store/reducer';
 import reducer from './store/reducer';
 
+
 const store = createStore(reducer);
+
 
 ReactDOM.render(<BrowserRouter><Provider store={store}><App /></Provider></BrowserRouter>, document.getElementById('root'));
 

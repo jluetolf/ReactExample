@@ -1,3 +1,5 @@
+
+import axiosinstance from 'axios';
 const initialList = (
     [
         {
@@ -257,17 +259,18 @@ const initialList = (
 
 );
 
-
 const initialState = {
     startDate: new Date(),
     endDate: new Date(),
     orchestrationList: initialList,
-    serverList: ["orchestration-service-mg-lau1", "orchestration-service-mg-bau1", "orchestration-service-mg-wau1"],
-    orchestrationTypeList: ["FULL", "DRF", "SS7f", "DSF", "DNSF"],
-    selectedServerList: null,
-    selectedOrchestrationType: null,
+    serverList: [{"label":"lau1", "value": "orchestration-service-mg-lau1"}, {"label":"bau1", "value": "orchestration-service-mg-bau1"}],
+    orchestrationTypeList: ["Full", "DRF", "DSF", "SS7F"],
+    selectedServerList: [],
+    selectedOrchestrationType: "Full",
     error: null
 };
+
+
 
 const reducer = (state = initialState, action) => {
 
@@ -303,9 +306,18 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 selectedOrchestrationType: action.value
             }
+
+        case 'UPDATE_SERVER_LIST':
+            return {
+                ...state,
+                serverList: action.value
+            }
+
         default:
             return state;
     }
 };
+
+
 
 export default reducer;

@@ -3,13 +3,28 @@ import './Credentials.css';
 
 import {Link} from 'react-router-dom';
 import {connect} from "react-redux";
-import Select from 'react-dropdown-select';
-import 'jquery/dist/jquery.min';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import Button from '@material-ui/core/Button';
+import FormControl from '@material-ui/core/FormControl';
+import MultipleSelect from '../MultipleSelect/MultipleSelect';
+import SingleSelect from '../SingleSelect/SingleSelect';
+import {withStyles} from "@material-ui/core/styles";
 
+import axiosinstance from '../../axios';
 
-
-
-
+const styles = theme => ({
+    root: {
+        boxShadow: 0
+    },
+    container: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
+    formControl: {
+        margin: theme.spacing(1),
+    }
+});
 
 class Credentials extends Component {
 
@@ -20,35 +35,45 @@ class Credentials extends Component {
     }
 
 
-
     handleChange(event) {
         this.setState(event.value);
     }
 
-
     onOkButtonHandler = (value) => {
         console.log(value);
 
+        switch (this.props.selectedOrchestrationType) {
+            case "FULL":
+
+        }
+    }
+
+    getStyles = (name, personName, theme) => {
+        return {
+            fontWeight:
+                personName.indexOf(name) === -1
+                    ? theme.typography.fontWeightRegular
+                    : theme.typography.fontWeightMedium,
+        };
     }
 
     render() {
 
+        const {classes} = this.props;
+
+
         const serverOptions = this.props.serverList.map(function (server) {
-                return {label: server, value: server}
-            });
+            return {label: server, value: server}
+        });
 
         const orchestrationTypeOptions = this.props.orchestrationTypeList.map(function (server) {
             return {label: server, value: server}
         });
 
-
-        const FULL = this.props.selectedOrchestrationType == "FULL" ? "active" : null;
-        const DRF = this.props.selectedOrchestrationType == "DRF" ? "active" : null;
-        const DSF = this.props.selectedOrchestrationType == "DSF" ? "active" : null;
-        const SS7F = this.props.selectedOrchestrationType == "SS7F" ? "active" : null;
-        const DNSF = this.props.selectedOrchestrationType == "DNSF" ? "active" : null;
-
-        const hallo = 'hallo';
+        let name = "Server Selection"
+        if (this.props.selectedServerList.length == 0) {
+            name = "All servers are selected";
+        }
 
         return (
             <div className="credentials">
@@ -57,63 +82,37 @@ class Credentials extends Component {
                     <div className="credentialContainer">
                         <div className="username">
                             <div className="usernameLabel">Username</div>
-                            <input className="usernameInput" type="text" onChange={() =>this.props.onUpdatedUsername(this.usernameRef.current.value)}  value={this.props.username} ref={this.usernameRef}/>
+                            <FormControl className={classes.formControl}>
+                                <InputLabel htmlFor="component-simple">Name</InputLabel>
+                                <Input id="component-simple" className="username"
+                                       boxShadow={0}
+                                       value={this.props.username}
+                                       onChange={this.props.onUpdatedUsername}
+                                />
+                            </FormControl>
                         </div>
                         <div className="password">
                             <div className="passwordLabel">Password</div>
-                            <input className="passwordInput" type="text" onChange={() => this.props.onUpdatedPassword(this.passwordRef.current.value)} value={this.props.password}  ref={this.passwordRef}/>
+                            <input className="passwordInput" type="text"
+                                   onChange={() => this.props.onUpdatedPassword(this.passwordRef.current.value)}
+                                   value={this.props.password} ref={this.passwordRef}/>
                         </div>
                         <div className="servers">
-                            <div className="serverLabel">Server Selection</div>
-                            <Select
-                                value={this.props.selectedServerList}
-                                name="server-selection"
-                                labelField="label"
-                                options={serverOptions}
-                                multi={false}
-                                searchable={false}
-                                onChange={this.props.onUpdatedSelectedServerList}
-                                placeholder="All servers are selected"
-                            />
+                            <MultipleSelect list={this.props.serverList}
+                                            selectedServerList={this.props.selectedServerList} labelName={name}
+                                            onHandleChange={this.props.onUpdatedSelectedServerList}/>
+
                         </div>
                         <div className="radios">
-                            <div className="radiosLabel">Orchestration Type</div>
-                            <Select
-                                value={this.props.selectedOrchestrationType}
-                                name="server-selection"
-                                options={orchestrationTypeOptions}
-                                isMulti="false"
-                                searchable="false"
-                                onChange={this.props.onUpdatedOrchestrationType}
-                                placeholder="All servers are selected"
-
-                            />
-                           {/* <div className="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label className={"btn btn-secondary " + FULL}
-                                       onClick={() => this.props.onUpdatedOrchestrationType("FULL")}>
-                                    <input type="radio" name="options" id="FULL" autoComplete="off"/> FULL
-                                </label>
-                                <label className={"btn btn-secondary " + DRF}
-                                       onClick={() => this.props.onUpdatedOrchestrationType("DRF")}>
-                                    <input type="radio" name="options" id="DRF" autoComplete="off" /> DRF
-                                </label>
-                                <label className={"btn btn-secondary " + DSF}
-                                       onClick={() => this.props.onUpdatedOrchestrationType("DSF")}>
-                                    <input type="radio" name="options" id="DSF" autoComplete="off" /> DSF
-                                </label>
-                                <label className={"btn btn-secondary " + SS7F}
-                                       onClick={() => this.props.onUpdatedOrchestrationType("SS7F")}>
-                                    <input type="radio" name="options" id="SS7F" autoComplete="off" /> SS7F
-                                </label>
-                                <label className={"btn btn-secondary " + DNSF}
-                                       onClick={() => this.props.onUpdatedOrchestrationType("DNSF")}>
-                                    <input type="radio" name="options" id="DNSF" autoComplete="off" /> DNSF
-                                </label>
-                            </div>*/}
+                            <SingleSelect list={this.props.orchestrationTypeList}
+                                          selectedOrchestrationType={this.props.selectedOrchestrationType}
+                                          labelName="Orchestration"
+                                          onHandleChange={this.props.onUpdatedOrchestrationType}/>
                         </div>
+
                         <div className="okButton">
-                            <button type="button" onClick={this.onOkButtonHandler} className="btn btn-outline-dark">OK
-                            </button>
+                            <Button variant="outlined" color="primary" onClick={this.onOkButtonHandler}>OK
+                            </Button>
                         </div>
                     </div>
 
@@ -150,4 +149,4 @@ const mapDispatchToProps = dispatch => {
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Credentials);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Credentials));

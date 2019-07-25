@@ -4,11 +4,30 @@ import {BrowserRouter, Route, NavLink, Switch} from 'react-router-dom';
 import Overview from './components/Overview/Overview';
 import NodeDetail from './components/NodeDetail/NodeDetail';
 import XMLDisplay from './components/XMLDisplay/XMLDisplay';
+import {connect} from "react-redux";
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: "#007bc0"
+        },
+        secondary: {
+            main: "#dc001b"
+        },
+        text: {
+            primary: "#666"
+        }
+
+    }
+} );
 
 class App extends Component {
 
     render() {
         return (
+
+            <MuiThemeProvider theme={theme}>
 
             <BrowserRouter>
                 <div className="App">
@@ -37,10 +56,28 @@ class App extends Component {
                     </Switch>
                 </div>
 
-            </BrowserRouter>
+                 </BrowserRouter>
+            </MuiThemeProvider>
         );
     }
 }
 
-export default App;
+
+
+const mapStateToProps = state => {
+    return {
+        serverList: state.serverList,
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onUpdatedServerList: (serverList) => dispatch({type: 'UPDATE_SERVER_LIST', value: serverList}),
+
+    };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
 
