@@ -15,7 +15,7 @@ import axiosinstance from '../../axios';
 
 const styles = theme => ({
     root: {
-        boxShadow: 0
+        boxshadow: 0
     },
     container: {
         display: 'flex',
@@ -62,9 +62,7 @@ class Credentials extends Component {
         const {classes} = this.props;
 
 
-        const serverOptions = this.props.serverList.map(function (server) {
-            return {label: server, value: server}
-        });
+
 
         const orchestrationTypeOptions = this.props.orchestrationTypeList.map(function (server) {
             return {label: server, value: server}
@@ -81,21 +79,22 @@ class Credentials extends Component {
                     <legend>Orchestration</legend>
                     <div className="credentialContainer">
                         <div className="username">
-                            <div className="usernameLabel">Username</div>
                             <FormControl className={classes.formControl}>
                                 <InputLabel htmlFor="component-simple">Name</InputLabel>
                                 <Input id="component-simple" className="username"
-                                       boxShadow={0}
                                        value={this.props.username}
-                                       onChange={this.props.onUpdatedUsername}
+                                       onChange={(event) => this.props.onUpdatedUsername(event.target.value)}
                                 />
                             </FormControl>
                         </div>
                         <div className="password">
-                            <div className="passwordLabel">Password</div>
-                            <input className="passwordInput" type="text"
-                                   onChange={() => this.props.onUpdatedPassword(this.passwordRef.current.value)}
-                                   value={this.props.password} ref={this.passwordRef}/>
+                            <FormControl className={classes.formControl}>
+                                <InputLabel htmlFor="component-simple">Name</InputLabel>
+                                <Input id="component-simple" className="password"
+                                       value={this.props.password}
+                                       onChange={(event) => this.props.onUpdatedPassword(event.target.value)}
+                                />
+                            </FormControl>
                         </div>
                         <div className="servers">
                             <MultipleSelect list={this.props.serverList}

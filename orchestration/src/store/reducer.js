@@ -260,6 +260,8 @@ const initialList = (
 );
 
 const initialState = {
+    password: "",
+    username: "",
     startDate: new Date(),
     endDate: new Date(),
     orchestrationList: initialList,
@@ -312,6 +314,19 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 serverList: action.value
             }
+
+        case 'UPDATE_USERNAME':
+            return {
+                ...state,
+                username: action.value
+            }
+
+        case 'UPDATE_PASSWORD':
+            return {
+                ...state,
+                password: action.value
+            }
+
 
         default:
             return state;
