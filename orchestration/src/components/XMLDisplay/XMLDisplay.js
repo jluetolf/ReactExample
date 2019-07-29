@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import axiosinstance from '../../axios';
+import axiosinstance from '../../axiosinstance';
 import {Link, withRouter, Redirect} from 'react-router-dom';
 import './XMLDisplay.css';
 

@@ -1,5 +1,5 @@
+import instance from './../axiosinstance';
 
-import axiosinstance from 'axios';
 const initialList = (
     [
         {
@@ -260,12 +260,13 @@ const initialList = (
 );
 
 const initialState = {
+    axiosinstance: instance,
     password: "",
     username: "",
     startDate: new Date(),
     endDate: new Date(),
     orchestrationList: initialList,
-    serverList: [{"label":"lau1", "value": "orchestration-service-mg-lau1"}, {"label":"bau1", "value": "orchestration-service-mg-bau1"}],
+    serverList: [],
     orchestrationTypeList: ["Full", "DRF", "DSF", "SS7F"],
     selectedServerList: [],
     selectedOrchestrationType: "Full",
@@ -306,7 +307,9 @@ const reducer = (state = initialState, action) => {
         case 'UPDATE_SELECTED_ORCHESTRATION_TYPE':
             return {
                 ...state,
-                selectedOrchestrationType: action.value
+                selectedOrchestrationType: action.value,
+                serverList: [],
+                selectedServerList: []
             }
 
         case 'UPDATE_SERVER_LIST':

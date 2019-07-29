@@ -11,7 +11,7 @@ import MultipleSelect from '../MultipleSelect/MultipleSelect';
 import SingleSelect from '../SingleSelect/SingleSelect';
 import {withStyles} from "@material-ui/core/styles";
 
-import axiosinstance from '../../axios';
+import axiosinstance from '../../axiosinstance';
 
 const styles = theme => ({
     root: {
