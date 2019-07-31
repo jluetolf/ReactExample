@@ -261,13 +261,13 @@ const initialList = (
 
 const initialState = {
     axiosinstance: instance,
-    password: "",
-    username: "",
+    password: "abc123",
+    username: "usr_joluet",
     startDate: new Date(),
     endDate: new Date(),
-    orchestrationList: initialList,
+    orchestrationList: [],//initialList,
     serverList: [],
-    orchestrationTypeList: ["Full", "DRF", "DSF", "SS7F"],
+    orchestrationTypeList: ["Full", "DRF", "DSF", "SS7F", "DNSF"],
     selectedServerList: [],
     selectedOrchestrationType: "Full",
     error: null
@@ -329,6 +329,12 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 password: action.value
             }
+
+        case 'REFRESH':
+            return {
+                ...state,
+            }
+
 
 
         default:

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import DatePicker from 'react-datepicker';
 import './DatePicker.css';
 import { connect } from 'react-redux';
+import RefreshButton from '../RefreshButton/RefreshButton';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -26,6 +27,9 @@ class DateRangePicker extends Component {
                     onChange={(date) => this.props.onEndDateChange(date.setHours(24,0,0,-1))}
                     dateFormat="MMMM d, yyyy"
                 />
+                <RefreshButton/>
+
+
 
             </div>
         );

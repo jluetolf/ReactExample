@@ -6,6 +6,8 @@ import NodeDetail from './components/NodeDetail/NodeDetail';
 import XMLDisplay from './components/XMLDisplay/XMLDisplay';
 import {connect} from "react-redux";
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import AlertDialog from "./components/AlertDialog/AlertDialog";
+import moment from 'moment';
 
 
 const theme = createMuiTheme({
@@ -31,7 +33,39 @@ class ServerItem {
 
 class App extends Component {
 
-    initializeStore = () => {
+    fromDate = new Date();
+    toDate = new Date();
+
+    dateFormat = 'DD.MM.YYYY';
+
+    initializeOrchestrationList = () => {
+        if ( this.fromDate !== this.props.startDate || this.toDate !== this.props.endDate) {
+
+            this.fromDate = this.props.startDate;
+            this.toDate = this.props.endDate;
+
+
+            const dateRange = {
+                fromDate:  moment(this.props.startDate).format(this.dateFormat),
+                toDate: moment(this.props.endDate).format(this.dateFormat)
+            }
+
+
+            this.props.axiosinstance.post('/orchestrations', dateRange)
+                .then(response => {
+                    if (JSON.stringify(this.props.orchestrationList) !== JSON.stringify(response.data)) {
+                        this.props.onUpdatedOrchestrationList(response.data);
+                    }
+                })
+                .catch(error => {
+                    if (this.props.error !== error) {
+                        this.props.onUpdateError(error.toString());
+                    }
+                });
+        }
+    };
+
+    initializeServerList = () => {
 
         if (this.props.serverList.length === 0 && this.props.error === null) {
             this.props.axiosinstance.get('ManagementServers')
@@ -104,12 +138,35 @@ class App extends Component {
         }
     }
 
+    initializeStore = () => {
+        this.initializeServerList();
+        this.initializeOrchestrationList();
+    }
+
+    componentDidMount() {
+        this.initializeStore();
+    }
+
+    componentDidUpdate() {
+        this.initializeStore();
+    }
+
+    handleClose = () => {
+        this.props.onUpdateError(null);
+
+    }
+
     render() {
 
-        this.initializeStore();
+        let errorMessage = null;
+        if (this.props.error != null && this.props.error.length > 0){
+            errorMessage = <AlertDialog message={this.props.error} handleClose={this.handleClose} />
+        }
+
         return (
 
             <MuiThemeProvider theme={theme}>
+                {errorMessage}
 
             <BrowserRouter>
                 <div className="App">
@@ -148,6 +205,9 @@ class App extends Component {
 
 const mapStateToProps = state => {
     return {
+        orchestrationList: state.orchestrationList,
+        startDate: state.startDate,
+        endDate: state.endDate,
         selectedOrchestrationType: state.selectedOrchestrationType,
         serverList: state.serverList,
         axiosinstance: state.axiosinstance,
@@ -158,8 +218,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onUpdatedServerList: (serverList) => dispatch({type: 'UPDATE_SERVER_LIST', value: serverList}),
-        onUpdateError: (error) => dispatch({type: 'UPDATE_ERROR', value: error})
-
+        onUpdateError: (error) => dispatch({type: 'UPDATE_ERROR', value: error}),
+        onUpdatedOrchestrationList: (orchestrationList) => dispatch({
+            type: 'UPDATE_ORCHESTRATION_LIST',
+            value: orchestrationList
+        })
     };
 };
 

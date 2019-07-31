@@ -11,12 +11,9 @@ import MultipleSelect from '../MultipleSelect/MultipleSelect';
 import SingleSelect from '../SingleSelect/SingleSelect';
 import {withStyles} from "@material-ui/core/styles";
 
-import axiosinstance from '../../axiosinstance';
 
 const styles = theme => ({
-    root: {
-        boxshadow: 0
-    },
+
     container: {
         display: 'flex',
         flexWrap: 'wrap',
@@ -26,43 +23,83 @@ const styles = theme => ({
     }
 });
 
+class User {
+    username = null;
+    password = null;
+}
+
+class PartialServiceList extends User {
+    service = [];
+}
+
 class Credentials extends Component {
 
     constructor(props) {
         super(props);
-        this.usernameRef = React.createRef();
-        this.passwordRef = React.createRef();
     }
 
-
-    handleChange(event) {
-        this.setState(event.value);
-    }
 
     onOkButtonHandler = (value) => {
         console.log(value);
 
+
+        let requestBody = null;
+        let requestURL = null;
+
+
         switch (this.props.selectedOrchestrationType) {
-            case "FULL":
-
+            case "Full":
+                requestBody = new User();
+                requestURL = 'full';
+                break;
+            case "DRF":
+                requestBody = new PartialServiceList();
+                requestBody.service = this.props.selectedServerList;
+                requestURL = 'drf';
+                break;
+            case "DSF":
+                requestBody = new PartialServiceList();
+                requestBody.service = this.props.selectedServerList;
+                requestURL = 'dsf';
+                break;
+            case "SS7F":
+                requestBody = new PartialServiceList();
+                requestBody.service = this.props.selectedServerList;
+                requestURL = 'ss7f';
+                break;
+            case "DNSF":
+                requestBody = new PartialServiceList();
+                requestBody.service = this.props.selectedServerList;
+                requestURL = 'dnsf';
+                break;
         }
+
+        requestBody.username = this.props.username;
+        requestBody.password = this.props.password;
+
+
+        this.props.axiosinstance.post(requestURL, requestBody)
+            .then(response => {
+
+            })
+            .catch(error => {
+                let errorMessage = error.toString();
+                if (error.response != null && error.response.status) {
+                    switch (error.response.status) {
+                        case 401:
+                            errorMessage = "Unauthorized: Verfiy your username and/or password";
+                            break;
+                    }
+                }
+                this.props.onUpdateError(errorMessage);
+            });
     }
 
-    getStyles = (name, personName, theme) => {
-        return {
-            fontWeight:
-                personName.indexOf(name) === -1
-                    ? theme.typography.fontWeightRegular
-                    : theme.typography.fontWeightMedium,
-        };
-    }
+
 
     render() {
 
         const {classes} = this.props;
-
-
-
 
         const orchestrationTypeOptions = this.props.orchestrationTypeList.map(function (server) {
             return {label: server, value: server}
@@ -89,8 +126,8 @@ class Credentials extends Component {
                         </div>
                         <div className="password">
                             <FormControl className={classes.formControl}>
-                                <InputLabel htmlFor="component-simple">Name</InputLabel>
-                                <Input id="component-simple" className="password"
+                                <InputLabel htmlFor="component-simple">Password</InputLabel>
+                                <Input type="password" id="component-simple" className="password"
                                        value={this.props.password}
                                        onChange={(event) => this.props.onUpdatedPassword(event.target.value)}
                                 />
@@ -127,12 +164,14 @@ class Credentials extends Component {
 
 const mapStateToProps = state => {
     return {
+        axiosinstance: state.axiosinstance,
         serverList: state.serverList,
         orchestrationTypeList: state.orchestrationTypeList,
         selectedServerList: state.selectedServerList,
         selectedOrchestrationType: state.selectedOrchestrationType,
         username: state.username,
-        password: state.password
+        password: state.password,
+        error: state.error
     };
 };
 
