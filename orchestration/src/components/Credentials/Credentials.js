@@ -89,6 +89,9 @@ class Credentials extends Component {
                         case 401:
                             errorMessage = "Unauthorized: Verfiy your username and/or password";
                             break;
+                        case 409:
+                            errorMessage = "Pending Orchestration: You cannot trigger a new orchestration for now";
+                            break;
                     }
                 }
                 this.props.onUpdateError(errorMessage);

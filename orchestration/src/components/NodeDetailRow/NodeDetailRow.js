@@ -15,7 +15,7 @@ class NodeDetailRow extends Component {
 
     onXMLButtonClicked(id, node_type) {
 
-        const popup  = window.open("http://localhost:55778/xml/" + id, "_blank");
+        const popup  = window.open("https://csvww1160.togewa.com:8443/orchestration/xml/" + id, "_blank");
     };
 
 

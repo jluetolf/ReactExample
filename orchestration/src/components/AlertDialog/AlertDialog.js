@@ -25,7 +25,7 @@ const AlertDialog = (props) => {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                <DialogTitle id="alert-dialog-title">{"Orchestration Error"}</DialogTitle>
+                <DialogTitle id="alert-dialog-title">{props.title}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
                         {props.message}

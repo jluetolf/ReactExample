@@ -4,6 +4,7 @@ import {BrowserRouter, Route, NavLink, Switch} from 'react-router-dom';
 import Overview from './components/Overview/Overview';
 import NodeDetail from './components/NodeDetail/NodeDetail';
 import XMLDisplay from './components/XMLDisplay/XMLDisplay';
+import Summary from './components/Summary/Summary';
 import {connect} from "react-redux";
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import AlertDialog from "./components/AlertDialog/AlertDialog";
@@ -35,11 +36,12 @@ class App extends Component {
 
     fromDate = new Date();
     toDate = new Date();
+    forceRefresh = null;
 
     dateFormat = 'DD.MM.YYYY';
 
     initializeOrchestrationList = () => {
-        if ( this.fromDate !== this.props.startDate || this.toDate !== this.props.endDate) {
+        if ( this.fromDate !== this.props.startDate || this.toDate !== this.props.endDate || this.forceRefresh != this.props.forceRefresh) {
 
             this.fromDate = this.props.startDate;
             this.toDate = this.props.endDate;
@@ -67,8 +69,8 @@ class App extends Component {
 
     initializeServerList = () => {
 
-        if (this.props.serverList.length === 0 && this.props.error === null) {
-            this.props.axiosinstance.get('ManagementServers')
+        if ((this.props.serverList.length === 0 && this.props.error === null) || this.forceRefresh != this.props.forceRefresh) {
+            this.props.axiosinstance.get('servers')
                 .then(response => {
 
                     let serverList = [];
@@ -141,6 +143,7 @@ class App extends Component {
     initializeStore = () => {
         this.initializeServerList();
         this.initializeOrchestrationList();
+        this.forceRefresh = this.props.forceRefresh;
     }
 
     componentDidMount() {
@@ -160,7 +163,7 @@ class App extends Component {
 
         let errorMessage = null;
         if (this.props.error != null && this.props.error.length > 0){
-            errorMessage = <AlertDialog message={this.props.error} handleClose={this.handleClose} />
+            errorMessage = <AlertDialog title="Orchestration Error" message={this.props.error} handleClose={this.handleClose} />
         }
 
         return (
@@ -190,6 +193,7 @@ class App extends Component {
                         <Route path="/xml" exact component={XMLDisplay}/>
                         <Route path="/" exact component={Overview}/>
                         <Route path="/detail/:id" exact component={NodeDetail}/>
+                        <Route path="/summary/:id" exact component={Summary}/>
                         {/*<Route path="/:nodeType/:cluster/:id" exact component={NodeDetail}/>*/}
                         {/*<Route path="/:id" exact component={FullPost}/>*/}
                     </Switch>
@@ -211,7 +215,8 @@ const mapStateToProps = state => {
         selectedOrchestrationType: state.selectedOrchestrationType,
         serverList: state.serverList,
         axiosinstance: state.axiosinstance,
-        error: state.error
+        error: state.error,
+        forceRefresh: state.forceRefresh
     };
 };
 

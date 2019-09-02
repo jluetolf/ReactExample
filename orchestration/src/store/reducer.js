@@ -270,7 +270,9 @@ const initialState = {
     orchestrationTypeList: ["Full", "DRF", "DSF", "SS7F", "DNSF"],
     selectedServerList: [],
     selectedOrchestrationType: "Full",
-    error: null
+    error: null,
+    forceRefresh: 0,
+    summary: null
 };
 
 
@@ -330,10 +332,18 @@ const reducer = (state = initialState, action) => {
                 password: action.value
             }
 
+        case 'UPDATE_SUMMARY':
+            return {
+                ...state,
+                summary : action.value
+            }
+
         case 'REFRESH':
             return {
                 ...state,
+                forceRefresh : state.forceRefresh + 1
             }
+
 
 
 

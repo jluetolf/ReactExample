@@ -98,34 +98,42 @@ const OrchestrationRow = (props) => {
         }
     }
 
-    if (secondaryListDRF.length > 0 || primaryListDRF.length > 0 ) {
-        nodeGroupList.push(<NodeGroup secondaryNodes={secondaryListDRF} primaryNodes={primaryListDRF} nodeType="DRF" id={props.orchestration.id} key="DRF"/>);
+    if (secondaryListDRF.length > 0 || primaryListDRF.length > 0) {
+        nodeGroupList.push(<NodeGroup secondaryNodes={secondaryListDRF} primaryNodes={primaryListDRF} nodeType="DRF"
+                                      id={props.orchestration.id} key="DRF"/>);
     }
-    if (secondaryListSS7F.length > 0 || primaryListSS7F.length > 0 ) {
-        nodeGroupList.push(<NodeGroup secondaryNodes={secondaryListSS7F} primaryNodes={primaryListSS7F} nodeType="SS7F" id={props.orchestration.id} key="SS7F"/>);
+    if (secondaryListSS7F.length > 0 || primaryListSS7F.length > 0) {
+        nodeGroupList.push(<NodeGroup secondaryNodes={secondaryListSS7F} primaryNodes={primaryListSS7F} nodeType="SS7F"
+                                      id={props.orchestration.id} key="SS7F"/>);
     }
-    if (secondaryListDSF.length > 0 || primaryListDSF.length > 0 ) {
-        nodeGroupList.push(<NodeGroup secondaryNodes={secondaryListDSF} primaryNodes={primaryListDSF} nodeType="DSF" id={props.orchestration.id} key="DSF"/>);
+    if (secondaryListDSF.length > 0 || primaryListDSF.length > 0) {
+        nodeGroupList.push(<NodeGroup secondaryNodes={secondaryListDSF} primaryNodes={primaryListDSF} nodeType="DSF"
+                                      id={props.orchestration.id} key="DSF"/>);
     }
-    if (secondaryListDNSF.length > 0 || primaryListDNSF.length > 0 ) {
-        nodeGroupList.push(<NodeGroup secondaryNodes={secondaryListDNSF} primaryNodes={primaryListDNSF} nodeType="DNSF" id={props.orchestration.id} key="DNSF"/>);
-    }
-
-    if (secondaryPreOrchestrationTestList.length > 0 || primaryPreOrchestrationTestList.length > 0 ) {
-        testGroupPreOrchestrationList = <TestGroup secondaryTest={secondaryPreOrchestrationTestList} primaryTest={primaryPreOrchestrationTestList}/>;
-    }
-    if (secondaryPostOrchestrationTestList.length > 0 || primaryPostOrchestrationTestList.length > 0 ) {
-        testGroupPostOrchestrationList = <TestGroup secondaryTest={secondaryPostOrchestrationTestList} primaryTest={primaryPostOrchestrationTestList}/>;
+    if (secondaryListDNSF.length > 0 || primaryListDNSF.length > 0) {
+        nodeGroupList.push(<NodeGroup secondaryNodes={secondaryListDNSF} primaryNodes={primaryListDNSF} nodeType="DNSF"
+                                      id={props.orchestration.id} key="DNSF"/>);
     }
 
+    if (secondaryPreOrchestrationTestList.length > 0 || primaryPreOrchestrationTestList.length > 0) {
+        testGroupPreOrchestrationList = <TestGroup secondaryTest={secondaryPreOrchestrationTestList}
+                                                   primaryTest={primaryPreOrchestrationTestList}/>;
+    }
+    if (secondaryPostOrchestrationTestList.length > 0 || primaryPostOrchestrationTestList.length > 0) {
+        testGroupPostOrchestrationList = <TestGroup secondaryTest={secondaryPostOrchestrationTestList}
+                                                    primaryTest={primaryPostOrchestrationTestList}/>;
+    }
 
 
     return (
         <div className="OrchestrationRow">
-            <OrchestrationType name={props.orchestration.orchestrationType}
-                               date={props.orchestration.orchestration_date}
-                               user={props.orchestration.orchestration_user}
-                               verdict={props.orchestration.verdict}/>
+            <OrchestrationType
+                id={props.orchestration.id}
+                name={props.orchestration.orchestration_type}
+                date={props.orchestration.start_date}
+                user={props.orchestration.username}
+                verdict={props.orchestration.verdict}
+                error={props.orchestration.error}/>
 
             {testGroupPreOrchestrationList}
             {nodeGroupList}

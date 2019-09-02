@@ -14,18 +14,6 @@ import instance from './axiosinstance';
 import intitialize from './store/reducer';
 import reducer from './store/reducer';
 
-
-instance.get('ManagementServers')
-    .then(response => {
-
-        let serverList = [];
-        serverList.addAll(response.data.ss7f.service);
-    })
-    .catch(error => {
-
-    });
-
-
 const store = createStore(reducer);
 
 
